@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+  HAI — Hemisphere Aerospace Investments
+  Design system: Avelo structure, HAI aerospace-navy skin.
+  Type: Lexend. Accent: azure. Brand: deep navy (logo) + steel blue.
+*/
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  /* Navy — primary brand (from the HAI logo) */
+  --color-navy-50: #eef4fb;
+  --color-navy-100: #d5e2f2;
+  --color-navy-200: #adc4e2;
+  --color-navy-300: #7f9fcd;
+  --color-navy-400: #5077b0;
+  --color-navy-500: #305891;
+  --color-navy-600: #1f4478;
+  --color-navy-700: #163663;
+  --color-navy-800: #0e2c54; /* brand primary */
+  --color-navy-900: #0a1e3a; /* hero / footer base */
+  --color-navy-950: #061225;
+
+  /* Azure — interactive accent (buttons, links, highlights) */
+  --color-azure-50: #eef6fe;
+  --color-azure-100: #d6e9fc;
+  --color-azure-200: #b0d3f8;
+  --color-azure-300: #7fb6f1;
+  --color-azure-400: #4f97e5;
+  --color-azure-500: #2f80d6; /* accent */
+  --color-azure-600: #1f66bb;
+  --color-azure-700: #1b5197;
+  --color-azure-800: #1b447b;
+  --color-azure-900: #1a3b66;
+
+  /* Steel — secondary (logo's lighter peak) */
+  --color-steel-200: #d3dce7;
+  --color-steel-300: #b3c2d6;
+  --color-steel-400: #8fa2bd;
+  --color-steel-500: #6e86a8;
+  --color-steel-600: #566d8f;
+  --color-steel-700: #465872;
+
+  /* Semantic */
+  --color-ink: #0b1a2e;
+  --color-cloud: #f4f8fc;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem; /* offset for the sticky navbar on anchor jumps */
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-white text-slate-600 antialiased;
+    font-synthesis-weight: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-semibold text-navy-900 tracking-tight;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    background-color: var(--color-azure-500);
+    color: #fff;
+  }
+
+  /* Consistent, on-brand focus ring for keyboard users */
+  :focus-visible {
+    outline: 2px solid var(--color-azure-500);
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Scroll-reveal — driven by the <Reveal> client component */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.8s var(--ease-out-expo),
+      transform 0.8s var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Thin uppercase eyebrow label used above section headings */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-azure-600;
+  }
+
+  /* Azure gradient text for select display words */
+  .text-gradient {
+    background: linear-gradient(100deg, var(--color-azure-400), var(--color-steel-400));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Faint aerospace grid for dark sections */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }
