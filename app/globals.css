@@ -2,12 +2,14 @@
 
 /*
   HAI — Hemisphere Aerospace Investments
-  Design system: Avelo structure, HAI aerospace-navy skin.
-  Type: Lexend. Accent: azure. Brand: deep navy (logo) + steel blue.
+  Design language: cinematic aerospace-capital. Deep navy field, azure interactive
+  accent, restrained brass for luxe micro-detail. Editorial serif display (Fraunces)
+  paired with a precise sans (Lexend). Motion is purposeful, never decorative.
 */
 
 @theme inline {
   --font-sans: var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
 }
 
 @theme {
@@ -44,12 +46,31 @@
   --color-steel-600: #566d8f;
   --color-steel-700: #465872;
 
+  /* Brass — luxe micro-accent. Used sparingly: hairlines, seals, VVIP touches. */
+  --color-gold-200: #f0e2bd;
+  --color-gold-300: #e6d09a;
+  --color-gold-400: #d8b978;
+  --color-gold-500: #c6a15b; /* premium accent */
+  --color-gold-600: #a8843f;
+  --color-gold-700: #856733;
+
   /* Semantic */
   --color-ink: #0b1a2e;
   --color-cloud: #f4f8fc;
 
   /* Motion */
   --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-quint: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Animation registrations */
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee-slow: marquee 60s linear infinite;
+  --animate-float: float 7s var(--ease-in-out-soft) infinite;
+  --animate-aurora: aurora 18s var(--ease-in-out-soft) infinite;
+  --animate-shimmer: shimmer 2.4s linear infinite;
+  --animate-spin-slow: spin 26s linear infinite;
+  --animate-pan: gradient-pan 8s var(--ease-in-out-soft) infinite;
 }
 
 @layer base {
@@ -63,6 +84,8 @@
   body {
     @apply bg-white text-slate-600 antialiased;
     font-synthesis-weight: none;
+    /* Prevent horizontal scroll from wide decorative elements */
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -89,36 +112,53 @@
     outline-offset: 2px;
     border-radius: 2px;
   }
+
+  /* Refined scrollbar on dark-capable browsers */
+  @supports (scrollbar-color: auto) {
+    html {
+      scrollbar-color: var(--color-navy-300) transparent;
+    }
+  }
 }
 
 @layer utilities {
-  /* Scroll-reveal — driven by the <Reveal> client component */
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition:
-      opacity 0.8s var(--ease-out-expo),
-      transform 0.8s var(--ease-out-expo);
-    transition-delay: var(--reveal-delay, 0ms);
-    will-change: opacity, transform;
+  /* ---- Typography helpers ---- */
+
+  /* Editorial display serif for large headlines */
+  .font-display {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
+    font-weight: 500;
   }
-  .reveal.is-visible {
-    opacity: 1;
-    transform: none;
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
   }
 
   /* Thin uppercase eyebrow label used above section headings */
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-azure-600;
+    @apply inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.24em] text-azure-600;
   }
 
   /* Azure gradient text for select display words */
   .text-gradient {
-    background: linear-gradient(100deg, var(--color-azure-400), var(--color-steel-400));
+    background: linear-gradient(100deg, var(--color-azure-300), var(--color-steel-300) 90%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
+
+  /* Brass gradient text — luxe accent word */
+  .text-gradient-gold {
+    background: linear-gradient(100deg, var(--color-gold-300), var(--color-gold-500));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ---- Surfaces & backgrounds ---- */
 
   /* Faint aerospace grid for dark sections */
   .bg-grid {
@@ -128,14 +168,216 @@
     background-size: 56px 56px;
   }
 
+  /* Blueprint grid with radial fade — for feature/technical sections */
+  .bg-blueprint {
+    background-image:
+      linear-gradient(to right, rgba(79, 151, 229, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(79, 151, 229, 0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
+  }
+
+  /* Fine dotted field */
+  .bg-dots {
+    background-image: radial-gradient(rgba(14, 44, 84, 0.10) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* Film-grain / noise overlay (data-URI, no network) */
+  .noise {
+    position: relative;
+  }
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+
+  /* Frosted glass — light and dark variants */
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(14px) saturate(150%);
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  .glass-dark {
+    background: rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  /* Hairline gradient border wrapper (draws a 1px gradient stroke) */
+  .hairline-gradient {
+    position: relative;
+  }
+  .hairline-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(79,151,229,0.5), rgba(198,161,91,0.35), transparent 60%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Soft premium shadow */
+  .shadow-float {
+    box-shadow: 0 30px 70px -30px rgba(10, 30, 58, 0.45), 0 10px 24px -18px rgba(10, 30, 58, 0.3);
+  }
+  .shadow-float-lg {
+    box-shadow: 0 50px 110px -40px rgba(10, 30, 58, 0.55), 0 18px 40px -24px rgba(10, 30, 58, 0.35);
+  }
+
+  /* Edge-fade mask for marquees */
+  .mask-edges-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  /* ---- Interactive effects ---- */
+
+  /* Sweep-shine used on primary buttons */
+  .shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .shine::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    transition: none;
+  }
+  .shine:hover::after {
+    left: 150%;
+    transition: left 0.85s var(--ease-out-expo);
+  }
+
+  /* Spotlight card: mouse-tracked radial glow (vars set by SpotlightCard) */
+  .spotlight {
+    position: relative;
+  }
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-out-expo);
+    background: radial-gradient(
+      340px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(79, 151, 229, 0.14),
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+
+  /* ---- Scroll-reveal — driven by the <Reveal> client component ---- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(6px);
+    transition:
+      opacity 0.9s var(--ease-out-expo),
+      transform 0.9s var(--ease-out-expo),
+      filter 0.9s var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform, filter;
+  }
+  .reveal.reveal-scale { transform: translateY(20px) scale(0.96); }
+  .reveal.reveal-left  { transform: translateX(-40px); }
+  .reveal.reveal-right { transform: translateX(40px); }
+  .reveal.reveal-none  { transform: none; }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+
+  /* Animation utilities */
+  .animate-marquee { animation: var(--animate-marquee); }
+  .animate-marquee-slow { animation: var(--animate-marquee-slow); }
+  .animate-float { animation: var(--animate-float); }
+  .animate-aurora { animation: var(--animate-aurora); }
+  .animate-spin-slow { animation: var(--animate-spin-slow); }
+  .animate-pan { background-size: 200% 200%; animation: var(--animate-pan); }
+
+  /* Slow ambient zoom/pan for full-bleed hero & CTA imagery */
+  .kenburns {
+    animation: kenburns 24s var(--ease-in-out-soft) infinite alternate;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal {
       opacity: 1 !important;
       transform: none !important;
+      filter: none !important;
       transition: none !important;
+    }
+    .animate-marquee,
+    .animate-marquee-slow,
+    .animate-float,
+    .animate-aurora,
+    .animate-spin-slow,
+    .animate-pan,
+    .kenburns {
+      animation: none !important;
     }
     html {
       scroll-behavior: auto;
     }
   }
+}
+
+/* ---- Keyframes ---- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes aurora {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.55; }
+  33% { transform: translate(6%, -8%) scale(1.15); opacity: 0.8; }
+  66% { transform: translate(-5%, 6%) scale(0.95); opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+
+@keyframes gradient-pan {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes scrollcue {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(250%); }
+}
+
+@keyframes kenburns {
+  0% { transform: scale(1.02) translate(0, 0); }
+  100% { transform: scale(1.1) translate(-1.5%, -1%); }
 }

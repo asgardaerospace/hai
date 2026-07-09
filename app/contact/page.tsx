@@ -3,6 +3,7 @@ import { MapPin, EnvelopeSimple, Clock } from "@phosphor-icons/react/ssr";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/reveal";
+import { SpotlightCard } from "@/components/spotlight-card";
 import { PageHero } from "@/components/page-hero";
 import { ContactForm } from "@/components/contact-form";
 import { images } from "@/lib/images";
@@ -53,11 +54,11 @@ export default function ContactPage() {
         eyebrow="Contact"
         title={
           <>
-            Let&apos;s <span className="text-gradient">connect</span>
+            Let&apos;s <span className="text-gradient italic">connect</span>
           </>
         }
         description="Whether you're expanding freight capacity, sourcing engines, or structuring your next transaction, we'd like to hear about it."
-        image={images.narrowbodyTarmac}
+        image={images.narrowbodyDusk}
       />
 
       <Section>
@@ -72,28 +73,32 @@ export default function ContactPage() {
             <div className="mt-8 space-y-4">
               {details.map((item, index) => (
                 <Reveal key={item.label} delay={index * 70}>
-                  <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5">
-                    <div className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-navy-50 text-azure-600 ring-1 ring-inset ring-navy-100">
-                      <item.icon weight="duotone" className="size-5" aria-hidden />
-                    </div>
-                    <div>
-                      <div className="text-xs font-semibold uppercase tracking-[0.16em] text-steel-500">
-                        {item.label}
+                  <SpotlightCard className="group rounded-2xl">
+                    <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-500 hover:border-azure-200 hover:shadow-sm">
+                      <div className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-navy-50 text-azure-600 ring-1 ring-inset ring-navy-100 transition-all duration-500 group-hover:bg-azure-500 group-hover:text-white group-hover:ring-azure-500">
+                        <item.icon weight="duotone" className="size-5" aria-hidden />
                       </div>
-                      <div className="mt-1 text-sm leading-relaxed text-navy-800">
-                        {item.value}
+                      <div>
+                        <div className="text-xs font-semibold uppercase tracking-[0.16em] text-steel-500">
+                          {item.label}
+                        </div>
+                        <div className="mt-1 text-sm leading-relaxed text-navy-800">
+                          {item.value}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </SpotlightCard>
                 </Reveal>
               ))}
             </div>
           </div>
 
           {/* Form */}
-          <Reveal delay={80}>
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_30px_70px_-40px_rgba(14,44,84,0.45)] sm:p-8">
-              <h2 className="text-xl font-semibold text-navy-900">Send us a message</h2>
+          <Reveal delay={80} variant="right">
+            <div className="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-float sm:p-8">
+              <h2 className="font-display text-2xl font-medium text-navy-900">
+                Send us a message
+              </h2>
               <p className="mt-1 text-sm text-slate-500">
                 Fill out the form and we&apos;ll be in touch.
               </p>

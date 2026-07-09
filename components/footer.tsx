@@ -9,6 +9,10 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-navy-900 text-navy-100">
+      <div
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent"
+        aria-hidden
+      />
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-60" aria-hidden />
       <div
         className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-azure-500/15 blur-3xl"

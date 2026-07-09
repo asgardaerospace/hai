@@ -5,69 +5,83 @@ export type ImageAsset = {
   alt: string;
 };
 
+/**
+ * Bespoke, cinematically color-graded aerospace imagery — a cohesive set shot in
+ * a single deep-navy / warm-amber palette so the whole site reads like one
+ * commissioned photoshoot. Optimized WebP under public/images/.
+ */
 export const images = {
-  heroEngineDusk: {
-    src: "/images/hero-engine-dusk.webp",
-    width: 1280,
-    height: 854,
-    alt: "Commercial jet engine and wing on the ramp at dusk",
+  heroCinematic: {
+    src: "/images/hero-cinematic.webp",
+    width: 2560,
+    height: 1429,
+    alt: "A commercial narrow-body jet airliner on a rain-slicked airport ramp at blue-hour dusk",
   },
-  engineNacelleHangar: {
-    src: "/images/engine-nacelle-hangar.webp",
-    width: 1280,
-    height: 876,
-    alt: "Open engine nacelle undergoing maintenance in a hangar",
+  widebodyDusk: {
+    src: "/images/widebody-dusk.webp",
+    width: 2400,
+    height: 1340,
+    alt: "A widebody airliner on a runway amid low ground fog at dusk, a city skyline glowing behind",
   },
-  engineShopRow: {
-    src: "/images/engine-shop-row.webp",
-    width: 1280,
-    height: 960,
-    alt: "Row of turbofan engines in an MRO facility",
+  turbofanHangar: {
+    src: "/images/turbofan-hangar.webp",
+    width: 1600,
+    height: 1195,
+    alt: "A commercial turbofan engine on a maintenance stand under dramatic light in a dark hangar",
   },
-  turbofanBlades: {
-    src: "/images/turbofan-blades.webp",
-    width: 1280,
-    height: 852,
-    alt: "Close-up of turbofan engine fan blades",
+  mroFacility: {
+    src: "/images/mro-facility.webp",
+    width: 1600,
+    height: 1195,
+    alt: "A row of turbofan engines on maintenance stands in a modern, softly lit MRO facility",
   },
-  narrowbodyTarmac: {
-    src: "/images/narrowbody-tarmac.webp",
-    width: 1280,
-    height: 850,
-    alt: "Narrow-body Boeing 737 on the tarmac with airstairs",
+  freighterNight: {
+    src: "/images/freighter-night.webp",
+    width: 1600,
+    height: 1195,
+    alt: "A converted narrow-body freighter with its main-deck cargo door open on a wet ramp at night",
   },
-  enginesOutdoorWide: {
-    src: "/images/engines-outdoor-wide.webp",
-    width: 1240,
-    height: 620,
-    alt: "Commercial engines on transport stands beside an aircraft",
+  vvipCabin: {
+    src: "/images/vvip-cabin.webp",
+    width: 1600,
+    height: 1195,
+    alt: "A luxurious VVIP business-jet cabin with cream leather seats and polished walnut veneer",
   },
-  haiOffice: {
-    src: "/images/hai-office.webp",
-    width: 600,
-    height: 451,
-    alt: "The Hemisphere Aerospace Investments office",
+  narrowbodyDusk: {
+    src: "/images/narrowbody-dusk.webp",
+    width: 1600,
+    height: 1195,
+    alt: "A narrow-body airliner parked on the tarmac with airstairs deployed at golden-hour dusk",
   },
-  vvip737: {
-    src: "/images/vvip-737-inflight.webp",
-    width: 600,
-    height: 451,
-    alt: "VVIP-configured Boeing 737 climbing after takeoff",
+  nacelleDetail: {
+    src: "/images/nacelle-detail.webp",
+    width: 1600,
+    height: 1195,
+    alt: "A close-up of an open engine nacelle undergoing detailed technical inspection",
   },
-  freighterPrimeAir: {
-    src: "/images/freighter-prime-air.webp",
-    width: 600,
-    height: 451,
-    alt: "Converted narrow-body freighter on the ramp at night",
+  jetSilhouette: {
+    src: "/images/jet-silhouette.webp",
+    width: 1600,
+    height: 1195,
+    alt: "A commercial jet in dramatic silhouette against a sweeping twilight sky",
+  },
+  officeDusk: {
+    src: "/images/office-dusk.webp",
+    width: 1600,
+    height: 1195,
+    alt: "A modern aerospace-investment office at dusk overlooking an airfield with a parked jet",
   },
 } satisfies Record<string, ImageAsset>;
 
+/** Poster frame for the hero video (first frame of the loop). */
+export const heroPoster = images.heroCinematic;
+
 /** Which photo represents each service (keyed by slug). */
 export const serviceImages: Record<string, ImageAsset> = {
-  "passenger-to-freighter-conversions": images.freighterPrimeAir,
-  "vvip-business-jet-retrofits": images.vvip737,
-  "commercial-jet-engine-mro": images.engineShopRow,
-  "aircraft-trading-leasing": images.narrowbodyTarmac,
-  "portfolio-technical-services": images.engineNacelleHangar,
-  "structured-finance": images.enginesOutdoorWide,
+  "passenger-to-freighter-conversions": images.freighterNight,
+  "vvip-business-jet-retrofits": images.vvipCabin,
+  "commercial-jet-engine-mro": images.turbofanHangar,
+  "aircraft-trading-leasing": images.narrowbodyDusk,
+  "portfolio-technical-services": images.nacelleDetail,
+  "structured-finance": images.jetSilhouette,
 };

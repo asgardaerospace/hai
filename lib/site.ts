@@ -9,7 +9,7 @@ export const siteConfig = {
   legalName: "Hemisphere Aerospace Investments, LLC",
   tagline: "Pushing the Boundaries of Aerospace Technology",
   description:
-    "Hemisphere Aerospace Investments is a global provider of commercial aircraft and engine trading assets — specializing in Boeing 737-800 and Airbus A321 passenger-to-freighter conversions and the CFM56-7/5B and CF6-50C2 engine series.",
+    "Hemisphere Aerospace Investments is a global provider of commercial aircraft and engine trading assets, specializing in Boeing 737-800 and Airbus A321 passenger-to-freighter conversions and the CFM56-7/5B and CF6-50C2 engine series.",
   foundedYear: 2019,
   url: "https://hai-aero.com",
   email: "info@hai-aero.com",
@@ -59,7 +59,7 @@ export const services: Service[] = [
     summary:
       "Transforming narrow-body passenger aircraft into freighters for airlines and delivery services expanding their cargo capacity.",
     description:
-      "HAI transforms and repurposes narrow-body Boeing 737-800 and Airbus A321 passenger aircraft into freighters — helping airlines and delivery services expand cargo capability to meet surging e-commerce and air-freight demand. Every program is delivered through FAA- and EASA-certified conversion partners and managed end to end.",
+      "HAI transforms and repurposes narrow-body Boeing 737-800 and Airbus A321 passenger aircraft into freighters, helping airlines and delivery services expand cargo capability to meet surging e-commerce and air-freight demand. Every program is delivered through FAA- and EASA-certified conversion partners and managed end to end.",
     features: [
       "Boeing 737-800 P2F programs",
       "Airbus A321 P2F programs",
@@ -75,7 +75,7 @@ export const services: Service[] = [
     summary:
       "Bespoke VVIP business-jet retrofits and interior completions, tailored to each client's exact expectations.",
     description:
-      "HAI delivers bespoke VVIP business-jet retrofits and interior completions — from custom cabin design to avionics and connectivity upgrades — tailored to each client's exact expectations and executed through premier completion centers.",
+      "HAI delivers bespoke VVIP business-jet retrofits and interior completions, from custom cabin design to avionics and connectivity upgrades, tailored to each client's exact expectations and executed through premier completion centers.",
     features: [
       "Custom cabin design & completion",
       "Corporate & head-of-state configurations",
@@ -91,7 +91,7 @@ export const services: Service[] = [
     summary:
       "Commercial jet-engine repair, maintenance, and overhaul delivered through certified MRO alliances.",
     description:
-      "HAI provides commercial jet-engine repair, maintenance, and overhaul across the CFM56-7B, CFM56-5B, and CF6-50C2 series — delivered through strategic alliances with premier FAA- and EASA-certified engine MRO providers, including performance restoration, testing, and green-time solutions.",
+      "HAI provides commercial jet-engine repair, maintenance, and overhaul across the CFM56-7B, CFM56-5B, and CF6-50C2 series, delivered through strategic alliances with premier FAA- and EASA-certified engine MRO providers, including performance restoration, testing, and green-time solutions.",
     features: [
       "CFM56-7B / -5B series",
       "CF6-50C2 series",
@@ -107,7 +107,7 @@ export const services: Service[] = [
     summary:
       "Sourcing, acquisition, sale, and leasing of commercial aircraft and engines across a global network.",
     description:
-      "HAI sources, acquires, sells, and leases commercial aircraft and engines — connecting airlines, lessors, and investors with the assets and capacity they need. From operating leases to sale-leaseback structures, we move assets efficiently across a global network.",
+      "HAI sources, acquires, sells, and leases commercial aircraft and engines, connecting airlines, lessors, and investors with the assets and capacity they need. From operating leases to sale-leaseback structures, we move assets efficiently across a global network.",
     features: [
       "Aircraft & engine sourcing",
       "Operating & finance leases",
@@ -123,7 +123,7 @@ export const services: Service[] = [
     summary:
       "End-to-end technical asset management that keeps portfolios airworthy, compliant, and investment-ready.",
     description:
-      "HAI provides end-to-end portfolio maintenance and technical services — asset management, records, and technical oversight that keep aircraft and engine portfolios airworthy, compliant, and investment-ready across the full lifecycle, including redelivery and transition support.",
+      "HAI provides end-to-end portfolio maintenance and technical services: asset management, records, and technical oversight that keep aircraft and engine portfolios airworthy, compliant, and investment-ready across the full lifecycle, including redelivery and transition support.",
     features: [
       "Technical asset management",
       "Records & airworthiness review",
@@ -139,7 +139,7 @@ export const services: Service[] = [
     summary:
       "Flexible capital structures tailored to each aircraft and engine transaction.",
     description:
-      "HAI structures finance solutions for aircraft and engine acquisitions, conversions, and portfolios — pairing deep aviation expertise with flexible capital structures, debt and lease structuring, and investor partnerships tailored to each transaction.",
+      "HAI structures finance solutions for aircraft and engine acquisitions, conversions, and portfolios, pairing deep aviation expertise with flexible capital structures, debt and lease structuring, and investor partnerships tailored to each transaction.",
     features: [
       "Acquisition & conversion financing",
       "Debt & lease structuring",
@@ -160,7 +160,7 @@ export const pillars = [
   {
     title: "Operational",
     description:
-      "Turn-key project management across conversions, retrofits, and transitions — delivered on time and on budget.",
+      "Turn-key project management across conversions, retrofits, and transitions, delivered on time and on budget.",
   },
   {
     title: "Technical",
@@ -176,10 +176,80 @@ export const stats = [
   { value: "FAA · EASA", label: "Certified MRO partner network" },
 ];
 
+/** Numeric metrics for the animated counter band (truthful, derived from above). */
+export const metrics = [
+  { value: "100+", label: "Years combined leadership experience" },
+  { value: "6", label: "Full-lifecycle service lines" },
+  { value: "4", label: "Specialized airframe & engine families" },
+  { value: "2019", label: "Founded on decades of expertise" },
+];
+
+/** Keywords for the trust marquee — HAI's specialized fleet & credentials. */
+export const marqueeItems = [
+  "Boeing 737-800",
+  "Airbus A321",
+  "CFM56-7B",
+  "CFM56-5B",
+  "CF6-50C2",
+  "P2F Conversions",
+  "VVIP Completions",
+  "Engine MRO",
+  "Sale-Leaseback",
+  "Structured Finance",
+  "FAA Part 145",
+  "EASA Certified",
+];
+
+/** How HAI delivers — the end-to-end asset lifecycle. */
+export const processSteps = [
+  {
+    number: "01",
+    title: "Source & Evaluate",
+    description:
+      "We identify aircraft and engines across a global network and run full commercial, technical, and records due diligence before any capital is committed.",
+  },
+  {
+    number: "02",
+    title: "Structure & Finance",
+    description:
+      "Each transaction is paired with the right capital structure (acquisition, operating lease, or sale-leaseback), with risk priced by decades of aviation-finance experience.",
+  },
+  {
+    number: "03",
+    title: "Convert & Overhaul",
+    description:
+      "P2F conversions, VVIP completions, and engine overhaul are executed through premier FAA- and EASA-certified partners under turn-key project management.",
+  },
+  {
+    number: "04",
+    title: "Deliver & Support",
+    description:
+      "We manage redelivery, transition, and ongoing technical oversight so every asset stays airworthy, compliant, and investment-ready across its lifecycle.",
+  },
+];
+
+/** A positioning pull-quote used as a signature statement. */
+export const positioning = {
+  quote:
+    "We don't simply trade aircraft. We engineer the financial, operational, and technical path that turns an asset into a working part of your fleet.",
+  attribution: "The Hemisphere approach",
+};
+
+/** Regions of operation for the global-reach section. */
+export const regions = [
+  "North America",
+  "Latin America",
+  "Europe",
+  "Middle East",
+  "Africa",
+  "Asia-Pacific",
+];
+
 export type TeamMember = {
   name: string;
   role: string;
   initials: string;
+  expertise: string[];
   bio: string[];
 };
 
@@ -188,19 +258,32 @@ export const team: TeamMember[] = [
     name: "John B. Sawyer",
     role: "Founder, Principal & Chief Executive Officer",
     initials: "JS",
+    expertise: [
+      "Equipment Financing",
+      "Lease & Lending Structures",
+      "Risk Analysis",
+      "Securitization",
+      "Portfolio Management",
+    ],
     bio: [
-      "John Sawyer is the Founder, Principal, and Chief Executive Officer of Hemisphere Aerospace Investments, with almost 40 years of commercial aviation trading experience. He manages and oversees all commercial aspects of the company — providing strategic direction, cultivating new initiatives, performing due diligence, and interfacing directly with clients — and brings the ever-critical commercial perspective to executing HAI's strategic vision.",
+      "John Sawyer is the Founder, Principal, and Chief Executive Officer of Hemisphere Aerospace Investments, with almost 40 years of commercial aviation trading experience. He manages and oversees all commercial aspects of the company (providing strategic direction, cultivating new initiatives, performing due diligence, and interfacing directly with clients) and brings the ever-critical commercial perspective to executing HAI's strategic vision.",
       "He possesses expert knowledge of equipment financing terms, lease and lending structures, risk analysis, documentation procedures, securitization, asset sales, and portfolio management. A solution-focused decision-maker with a strong aviation background, he motivates diverse cross-functional teams to complete projects on time and under budget in any dynamic domestic or international environment.",
-      "Prior to co-founding Hemisphere Aerospace Investments, John served as Chief Trading Officer for four boutique mid-size aircraft leasing companies — two in Europe and two in the United States. Before that, he was Chief Executive Officer of Hamilton Aerospace, a mid-size MRO located in Tucson, Arizona, specializing in narrow-body heavy overhaul and passenger-to-freighter conversions.",
+      "Prior to co-founding Hemisphere Aerospace Investments, John served as Chief Trading Officer for four boutique mid-size aircraft leasing companies, two in Europe and two in the United States. Before that, he was Chief Executive Officer of Hamilton Aerospace, a mid-size MRO located in Tucson, Arizona, specializing in narrow-body heavy overhaul and passenger-to-freighter conversions.",
     ],
   },
   {
     name: "Thomas Leath",
     role: "Partner & Chief Business Development Officer",
     initials: "TL",
+    expertise: [
+      "Business Development",
+      "Investor Relations",
+      "Capital Raising",
+      "Strategic Partnerships",
+    ],
     bio: [
       "Thomas Leath is a Partner and Chief Business Development Officer of Hemisphere Aerospace Investments. Tom collaborates with senior leadership to identify new investors and financial relationships that support HAI's long-term growth and development.",
-      "Tom's diverse career background ranges from film and Caribbean real estate to social-media consulting, government relations, and raising seed capital for multiple ventures. He leverages his extensive network and knowledge to create strategic — and lucrative — partnerships and opportunities for HAI and its clients.",
+      "Tom's diverse career background ranges from film and Caribbean real estate to social-media consulting, government relations, and raising seed capital for multiple ventures. He leverages his extensive network and knowledge to create strategic and lucrative partnerships and opportunities for HAI and its clients.",
     ],
   },
 ];

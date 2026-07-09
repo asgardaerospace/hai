@@ -16,13 +16,22 @@ function isActive(pathname: string, href: string) {
 export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? Math.min(window.scrollY / max, 1) : 0);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   // Close the mobile menu whenever the route changes.
@@ -45,14 +54,20 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         solid
-          ? "border-b border-slate-200/80 bg-white/85 backdrop-blur-md"
+          ? "border-b border-slate-200/80 bg-white/85 shadow-[0_8px_30px_-20px_rgba(10,30,58,0.4)] backdrop-blur-md"
           : "border-b border-transparent bg-transparent",
       )}
     >
+      {/* Scroll progress */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-gradient-to-r from-azure-500 via-azure-400 to-gold-400 transition-transform duration-150 ease-out"
+        style={{ transform: `scaleX(${progress})` }}
+        aria-hidden
+      />
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
         <Link
           href="/"
-          aria-label="Hemisphere Aerospace Investments — home"
+          aria-label="Hemisphere Aerospace Investments, home"
           className="rounded-sm"
         >
           <Logo tone={solid ? "onLight" : "onDark"} />

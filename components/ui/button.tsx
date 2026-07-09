@@ -14,17 +14,18 @@ type BaseProps = {
 };
 
 const base =
-  "group inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-300 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60";
+  "shine group inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-azure-500 text-white shadow-lg shadow-azure-500/25 hover:bg-azure-600 hover:shadow-azure-600/30 hover:-translate-y-0.5",
-  navy: "bg-navy-800 text-white hover:bg-navy-900 hover:-translate-y-0.5",
+    "bg-gradient-to-b from-azure-400 to-azure-600 text-white shadow-lg shadow-azure-600/30 ring-1 ring-inset ring-white/15 hover:shadow-xl hover:shadow-azure-600/40 hover:-translate-y-0.5",
+  navy: "bg-navy-800 text-white shadow-lg shadow-navy-950/25 hover:bg-navy-900 hover:-translate-y-0.5",
   outline:
-    "border border-navy-200 bg-white text-navy-800 hover:border-azure-400 hover:text-azure-600",
-  white: "bg-white text-navy-900 shadow-lg shadow-navy-950/10 hover:bg-navy-50 hover:-translate-y-0.5",
+    "border border-navy-200 bg-white text-navy-800 hover:border-azure-400 hover:text-azure-600 hover:-translate-y-0.5",
+  white:
+    "bg-white text-navy-900 shadow-lg shadow-navy-950/15 hover:bg-navy-50 hover:-translate-y-0.5",
   "ghost-light":
-    "border border-white/25 text-white hover:bg-white/10 hover:border-white/40",
+    "border border-white/30 text-white backdrop-blur-sm hover:bg-white/10 hover:border-white/50",
 };
 
 const sizes: Record<Size, string> = {

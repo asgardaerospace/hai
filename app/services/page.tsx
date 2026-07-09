@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle } from "@phosphor-icons/react/ssr";
 import { Section } from "@/components/ui/section";
-import { SectionHeading } from "@/components/ui/section-heading";
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import { ServiceIcon } from "@/components/service-icon";
@@ -27,11 +26,11 @@ export default function ServicesPage() {
         title={
           <>
             Full-lifecycle aircraft &amp; engine{" "}
-            <span className="text-gradient">solutions</span>
+            <span className="text-gradient italic">solutions</span>
           </>
         }
-        description="From conversions and completions to engine overhaul, trading, and finance — every project delivered through certified partners and tailored to your objectives."
-        image={images.engineShopRow}
+        description="From conversions and completions to engine overhaul, trading, and finance: every project delivered through certified partners and tailored to your objectives."
+        image={images.turbofanHangar}
       />
 
       {/* Index / jump-to */}
@@ -42,9 +41,13 @@ export default function ServicesPage() {
               <Link
                 key={service.slug}
                 href={`#${service.slug}`}
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-navy-700 transition-colors hover:border-azure-300 hover:text-azure-600"
+                className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-navy-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-azure-300 hover:text-azure-600 hover:shadow-sm"
               >
-                <ServiceIcon icon={service.icon} className="size-4" weight="bold" />
+                <ServiceIcon
+                  icon={service.icon}
+                  className="size-4 text-azure-500 transition-transform duration-300 group-hover:scale-110"
+                  weight="bold"
+                />
                 {service.title}
               </Link>
             ))}
@@ -63,14 +66,21 @@ export default function ServicesPage() {
             className={cn("scroll-mt-24", reversed && "bg-slate-50")}
           >
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-              <Reveal className={cn(reversed && "lg:order-2")}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-[0_30px_70px_-30px_rgba(14,44,84,0.5)]">
+              <Reveal
+                variant={reversed ? "right" : "left"}
+                className={cn("group", reversed && "lg:order-2")}
+              >
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] shadow-float-lg">
                   <Image
                     src={image.src}
                     alt={image.alt}
                     fill
                     sizes="(min-width: 1024px) 45vw, 100vw"
-                    className="object-cover"
+                    className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-navy-950/40 to-transparent"
+                    aria-hidden
                   />
                   <div className="absolute left-5 top-5 inline-flex size-12 items-center justify-center rounded-xl bg-white/95 text-azure-600 shadow-lg backdrop-blur">
                     <ServiceIcon icon={service.icon} className="size-6" weight="duotone" />
@@ -81,9 +91,9 @@ export default function ServicesPage() {
               <div className={cn(reversed && "lg:order-1")}>
                 <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-azure-600">
                   <span className="h-px w-6 bg-azure-500" aria-hidden />
-                  Service {String(index + 1).padStart(2, "0")}
+                  Service {String(index + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
                 </span>
-                <h2 className="mt-4 text-3xl leading-tight text-navy-900 sm:text-4xl">
+                <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-navy-900 sm:text-4xl">
                   {service.title}
                 </h2>
                 <p className="mt-5 leading-relaxed text-slate-600">
@@ -97,9 +107,7 @@ export default function ServicesPage() {
                         className="mt-0.5 size-5 shrink-0 text-azure-500"
                         aria-hidden
                       />
-                      <span className="text-sm font-medium text-navy-800">
-                        {feature}
-                      </span>
+                      <span className="text-sm font-medium text-navy-800">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -116,8 +124,9 @@ export default function ServicesPage() {
 
       <CTABand
         title="Ready to move your project forward?"
-        description="Tell us what you're planning — a conversion program, an engine requirement, or a transaction — and we'll tailor an approach."
-        image={images.enginesOutdoorWide}
+        description="Tell us what you're planning (a conversion program, an engine requirement, or a transaction) and we'll tailor an approach."
+        image={images.widebodyDusk}
+        video={{ mp4: "/videos/cta-loop.mp4", webm: "/videos/cta-loop.webm" }}
         primary={{ label: "Get in Touch", href: "/contact" }}
       />
     </>

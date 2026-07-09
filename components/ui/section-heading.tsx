@@ -44,7 +44,7 @@ export function SectionHeading({
       ) : null}
       <Heading
         className={cn(
-          "mt-4 text-3xl leading-[1.12] sm:text-4xl lg:text-[2.65rem]",
+          "mt-4 font-display text-[2rem] font-medium leading-[1.12] sm:text-4xl lg:text-[2.7rem]",
           tone === "dark" ? "text-white" : "text-navy-900",
         )}
       >

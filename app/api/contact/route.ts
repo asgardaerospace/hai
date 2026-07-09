@@ -65,7 +65,7 @@ export async function POST(request: Request) {
 
   const resend = new Resend(apiKey);
 
-  const subject = `New website inquiry — ${name}${company ? ` · ${company}` : ""}`;
+  const subject = `New website inquiry: ${name}${company ? ` · ${company}` : ""}`;
   const lines = [
     `Name: ${name}`,
     `Email: ${email}`,

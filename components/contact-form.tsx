@@ -76,7 +76,7 @@ export function ContactForm() {
         <CheckCircle weight="fill" className="size-14 text-azure-500" aria-hidden />
         <h3 className="mt-4 text-xl font-semibold text-navy-900">Message sent</h3>
         <p className="mt-2 max-w-sm text-slate-600">
-          Thanks for reaching out — a member of the HAI team will get back to you
+          Thanks for reaching out. A member of the HAI team will get back to you
           shortly.
         </p>
         <button

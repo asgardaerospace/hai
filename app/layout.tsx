@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Lexend } from "next/font/google";
+import { Lexend, Fraunces } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -11,10 +11,20 @@ const lexend = Lexend({
   display: "swap",
 });
 
+// Editorial display serif — used for large headlines to give the brand
+// the gravitas of a capital / investment house rather than a generic template.
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+  style: ["normal", "italic"],
+  axes: ["opsz", "SOFT"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Commercial Aircraft & Engine Trading`,
+    default: `${siteConfig.name}: Commercial Aircraft & Engine Trading`,
     template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,
@@ -34,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Commercial Aircraft & Engine Trading`,
+    title: `${siteConfig.name}: Commercial Aircraft & Engine Trading`,
     description: siteConfig.description,
     url: siteConfig.url,
     locale: "en_US",
@@ -57,7 +67,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={lexend.variable}>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${lexend.variable} ${fraunces.variable}`}
+    >
       <head>
         <noscript>
           {/* Ensure scroll-reveal content is visible when JS is disabled */}

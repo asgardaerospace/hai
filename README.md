@@ -4,8 +4,41 @@ Marketing website for Hemisphere Aerospace Investments, LLC — a global provide
 commercial aircraft and engine trading assets.
 
 Built with **Next.js 16** (App Router) · **React 19** · **Tailwind CSS v4** ·
-**TypeScript** · **Lexend** (next/font) · **Phosphor** icons. Deployed on **Vercel**.
-No database or CMS — all content lives in typed modules under `lib/`.
+**TypeScript** · **Lexend** + **Fraunces** (next/font) · **Phosphor** icons.
+Deployed on **Vercel**. No database or CMS — all content lives in typed modules
+under `lib/`.
+
+### Design & motion
+
+The site uses a cinematic aerospace-capital design language: a deep-navy field,
+azure interactive accent, and restrained brass (`gold`) for luxe micro-detail.
+Headlines are set in the editorial serif **Fraunces** (`.font-display`); body/UI
+in **Lexend**.
+
+Motion is purposeful and defined centrally in `app/globals.css` (keyframes +
+utilities) and a small set of client primitives:
+
+- `components/reveal.tsx` — scroll-reveal (fade / rise / de-blur, directional variants)
+- `components/counter.tsx` — count-up stats on scroll
+- `components/marquee.tsx` — seamless infinite strip (trust band)
+- `components/spotlight-card.tsx` — cursor-tracked card glow
+- `components/magnetic.tsx` — magnetic hover for hero/CTA buttons
+- `components/hero-video.tsx` / `components/ambient-video.tsx` — cinematic
+  background loops (hero plays eagerly over its poster; ambient loops load only
+  when scrolled near). Both fade in over a poster image and are skipped entirely
+  under `prefers-reduced-motion`.
+
+All motion respects `prefers-reduced-motion`.
+
+### Media assets
+
+The photography and hero/CTA video loops are bespoke, cinematically color-graded
+aerospace imagery generated for HAI (a single deep-navy / warm-amber palette so
+the site reads like one commissioned shoot). Stills live in `public/images/`
+(optimized WebP, catalogued in `lib/images.ts`); the looping videos live in
+`public/videos/` (`hero-loop.mp4` / `.webm`, seamless forward-reverse palindromes).
+To swap any asset, drop a replacement in the same folder and update the matching
+entry in `lib/images.ts`.
 
 ## Pages
 
