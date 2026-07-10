@@ -32,10 +32,12 @@ const introFeatures = [
 ];
 
 const specializations = [
-  { name: "Boeing 737-800", type: "Narrow-body airframe", icon: "airframe" as const },
-  { name: "Airbus A321", type: "Narrow-body airframe", icon: "airframe" as const },
+  { name: "Boeing", type: "Narrow- & widebody airframes", icon: "airframe" as const },
+  { name: "Airbus", type: "Narrow- & widebody airframes", icon: "airframe" as const },
   { name: "CFM56-7B / -5B", type: "Engine series", icon: "engine" as const },
-  { name: "CF6-50C2", type: "Engine series", icon: "engine" as const },
+  { name: "CF6-50C2 / -80C2", type: "Engine series", icon: "engine" as const },
+  { name: "GE90", type: "Engine series", icon: "engine" as const },
+  { name: "Trent 700 / 800", type: "Engine series", icon: "engine" as const },
 ];
 
 const trustItems = [
@@ -82,9 +84,9 @@ export default function HomePage() {
                 />
               </div>
 
-              {/* Est. 2019 badge */}
+              {/* Est. 2018 badge */}
               <div className="absolute left-0 top-6 rounded-2xl bg-navy-900 px-5 py-4 text-white shadow-float ring-1 ring-white/10">
-                <div className="font-display text-3xl font-medium leading-none">2019</div>
+                <div className="font-display text-3xl font-medium leading-none">2018</div>
                 <div className="mt-2 flex items-center gap-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-gold-300">
                   <span className="h-px w-3 bg-gold-400" aria-hidden />
                   Founded
@@ -104,7 +106,7 @@ export default function HomePage() {
                   lifecycle
                 </>
               }
-              description="Hemisphere Aerospace Investments is a global provider of commercial aircraft and engine trading assets. We focus on the narrow-body Boeing 737-800 and Airbus A321 passenger-to-freighter segments and the CFM56-7/5B and CF6-50C2 engine series."
+              description="Hemisphere Aerospace Investments is a global provider of commercial aircraft and engine trading assets. We focus on Boeing and Airbus narrow- and widebody passenger-to-freighter segments and the CFM56, CF6, GE90, and Trent engine series."
             />
             <Reveal delay={120}>
               <p className="mt-5 max-w-xl leading-relaxed text-slate-600">
@@ -211,9 +213,9 @@ export default function HomePage() {
           align="center"
           eyebrow="Focused Expertise"
           title="Specialized where it counts"
-          description="We concentrate on the highest-demand narrow-body airframes and the engine families that power global fleets."
+          description="We concentrate on high-demand Boeing and Airbus narrow- and widebody airframes and the engine families that power global fleets."
         />
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {specializations.map((item, index) => {
             const Icon = item.icon === "airframe" ? Airplane : Engine;
             return (

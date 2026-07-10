@@ -88,13 +88,17 @@ export default function OpengraphImage() {
           }}
         >
           <div style={{ display: "flex", gap: 14, color: "#7f9fcd" }}>
-            <span>737-800</span>
+            <span>Boeing</span>
             <span style={{ color: "#c6a15b" }}>·</span>
-            <span>A321</span>
+            <span>Airbus</span>
             <span style={{ color: "#c6a15b" }}>·</span>
             <span>CFM56</span>
             <span style={{ color: "#c6a15b" }}>·</span>
-            <span>CF6-50C2</span>
+            <span>CF6</span>
+            <span style={{ color: "#c6a15b" }}>·</span>
+            <span>GE90</span>
+            <span style={{ color: "#c6a15b" }}>·</span>
+            <span>Trent</span>
           </div>
           <div style={{ color: "#7f9fcd" }}>hai-aero.com</div>
         </div>

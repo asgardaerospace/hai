@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MapPin, EnvelopeSimple, Clock } from "@phosphor-icons/react/ssr";
+import { MapPin, EnvelopeSimple, Clock, Phone } from "@phosphor-icons/react/ssr";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/reveal";
@@ -37,6 +37,18 @@ const details = [
         className="text-azure-600 hover:text-azure-700"
       >
         {siteConfig.email}
+      </a>
+    ),
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: (
+      <a
+        href={`tel:${siteConfig.phone}`}
+        className="text-azure-600 hover:text-azure-700"
+      >
+        {siteConfig.phoneDisplay}
       </a>
     ),
   },

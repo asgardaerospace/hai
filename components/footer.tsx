@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, EnvelopeSimple, ArrowUpRight } from "@phosphor-icons/react/ssr";
+import { MapPin, EnvelopeSimple, ArrowUpRight, Phone } from "@phosphor-icons/react/ssr";
 import { Logo } from "@/components/logo";
 import { Container } from "@/components/ui/container";
 import { siteConfig, navLinks, services } from "@/lib/site";
@@ -30,7 +30,7 @@ export function Footer() {
           </div>
 
           {/* Quick links */}
-          <div className="lg:col-span-2 lg:col-start-6">
+          <div className="lg:col-span-2 lg:col-start-5">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
               Company
             </h3>
@@ -45,11 +45,19 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/global-experience"
+                  className="text-navy-100/70 transition-colors hover:text-white"
+                >
+                  Global Experience
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Services */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 lg:col-start-7">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
               Services
             </h3>
@@ -92,6 +100,15 @@ export function Footer() {
                 >
                   {siteConfig.email}
                   <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
+                </a>
+              </li>
+              <li className="flex gap-3">
+                <Phone className="mt-0.5 size-5 shrink-0 text-azure-400" weight="duotone" aria-hidden />
+                <a
+                  href={`tel:${siteConfig.phone}`}
+                  className="text-navy-100/70 transition-colors hover:text-white"
+                >
+                  {siteConfig.phoneDisplay}
                 </a>
               </li>
             </ul>

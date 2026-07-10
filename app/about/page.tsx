@@ -23,13 +23,13 @@ import { stats } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Founded in 2019, Hemisphere Aerospace Investments is a global provider of commercial aircraft and engine trading, portfolio management, and technical services, bridging financial, operational, and technical expertise.",
+    "Founded in 2018, Hemisphere Aerospace Investments is a global provider of commercial aircraft and engine trading, portfolio management, and technical services, bridging financial, operational, and technical expertise.",
 };
 
 const capabilities = [
   {
     title: "Passenger-to-Freighter Conversions",
-    caption: "Narrow-body 737-800 & A321 programs",
+    caption: "Boeing & Airbus narrow- & widebody programs",
     image: images.freighterNight,
     href: "/services#passenger-to-freighter-conversions",
   },
@@ -41,7 +41,7 @@ const capabilities = [
   },
   {
     title: "Commercial Jet-Engine MRO",
-    caption: "CFM56-7/5B & CF6-50C2 series",
+    caption: "CFM56, CF6, GE90 & Trent series",
     image: images.turbofanHangar,
     href: "/services#commercial-jet-engine-mro",
   },
@@ -95,7 +95,7 @@ export default function AboutPage() {
           <div>
             <SectionHeading
               eyebrow="Our History"
-              title="Founded in 2019, built on decades of expertise"
+              title="Founded in 2018, built on decades of expertise"
               description="Hemisphere Aerospace Investments (HAI) is a global provider of commercial aircraft and engine trading, portfolio management, and commercial and technical services."
             />
             <Reveal delay={120}>
@@ -110,6 +110,19 @@ export default function AboutPage() {
                   We provide our customers with the most cost-effective, reliable, and
                   flexible solutions, tailored to fit their individual circumstances.
                 </p>
+              </div>
+              <div className="mt-6">
+                <Link
+                  href="/global-experience"
+                  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-azure-600 transition-colors hover:text-azure-700"
+                >
+                  Explore HAI&apos;s global aerospace experience
+                  <ArrowRight
+                    weight="bold"
+                    className="size-4 transition-transform group-hover:translate-x-0.5"
+                    aria-hidden
+                  />
+                </Link>
               </div>
             </Reveal>
           </div>

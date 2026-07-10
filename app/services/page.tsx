@@ -53,6 +53,17 @@ export default function ServicesPage() {
             ))}
           </div>
         </Reveal>
+        <Reveal delay={120}>
+          <p className="mt-8 text-center text-sm text-slate-500">
+            Backed by four decades of global aerospace experience across six continents.{" "}
+            <Link
+              href="/global-experience"
+              className="font-semibold text-azure-600 transition-colors hover:text-azure-700"
+            >
+              Explore HAI&apos;s global experience
+            </Link>
+          </p>
+        </Reveal>
       </Section>
 
       {/* Detail sections */}

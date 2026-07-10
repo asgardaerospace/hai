@@ -9,10 +9,12 @@ export const siteConfig = {
   legalName: "Hemisphere Aerospace Investments, LLC",
   tagline: "Pushing the Boundaries of Aerospace Technology",
   description:
-    "Hemisphere Aerospace Investments is a global provider of commercial aircraft and engine trading assets, specializing in Boeing 737-800 and Airbus A321 passenger-to-freighter conversions and the CFM56-7/5B and CF6-50C2 engine series.",
-  foundedYear: 2019,
+    "Hemisphere Aerospace Investments is a global provider of commercial aircraft and engine trading assets, specializing in Boeing and Airbus narrow- and widebody passenger-to-freighter conversions and the CFM56, CF6, GE90, and Rolls-Royce Trent engine series.",
+  foundedYear: 2018,
   url: "https://hai-aero.com",
   email: "info@hai-aero.com",
+  phone: "+12544358209",
+  phoneDisplay: "+1 (254) 435-8209",
   address: {
     line1: "522 Austin Ave",
     city: "Waco",
@@ -55,14 +57,14 @@ export const services: Service[] = [
   {
     slug: "passenger-to-freighter-conversions",
     title: "Passenger-to-Freighter Conversions",
-    short: "Narrow-body 737-800 & A321 freighter conversions.",
+    short: "Boeing & Airbus narrow- & widebody freighter conversions.",
     summary:
-      "Transforming narrow-body passenger aircraft into freighters for airlines and delivery services expanding their cargo capacity.",
+      "Transforming Boeing and Airbus passenger aircraft into freighters for airlines and delivery services expanding their cargo capacity.",
     description:
-      "HAI transforms and repurposes narrow-body Boeing 737-800 and Airbus A321 passenger aircraft into freighters, helping airlines and delivery services expand cargo capability to meet surging e-commerce and air-freight demand. Every program is delivered through FAA- and EASA-certified conversion partners and managed end to end.",
+      "HAI transforms and repurposes Boeing and Airbus narrow- and widebody passenger aircraft into freighters, helping airlines and delivery services expand cargo capability to meet surging e-commerce and air-freight demand. Every program is delivered through FAA- and EASA-certified conversion partners and managed end to end.",
     features: [
-      "Boeing 737-800 P2F programs",
-      "Airbus A321 P2F programs",
+      "Boeing narrow- & widebody P2F",
+      "Airbus narrow- & widebody P2F",
       "FAA- & EASA-certified conversion partners",
       "Turn-key project management",
     ],
@@ -87,14 +89,16 @@ export const services: Service[] = [
   {
     slug: "commercial-jet-engine-mro",
     title: "Commercial Jet-Engine MRO",
-    short: "CFM56-7/5B & CF6-50C2 repair and overhaul.",
+    short: "CFM56, CF6, GE90 & Trent repair and overhaul.",
     summary:
       "Commercial jet-engine repair, maintenance, and overhaul delivered through certified MRO alliances.",
     description:
-      "HAI provides commercial jet-engine repair, maintenance, and overhaul across the CFM56-7B, CFM56-5B, and CF6-50C2 series, delivered through strategic alliances with premier FAA- and EASA-certified engine MRO providers, including performance restoration, testing, and green-time solutions.",
+      "HAI provides commercial jet-engine repair, maintenance, and overhaul across the CFM56-7B, CFM56-5B, CF6-50C2, CF6-80C2, GE90, and Rolls-Royce Trent 700/800 series, delivered through strategic alliances with premier FAA- and EASA-certified engine MRO providers, including performance restoration, testing, and green-time solutions.",
     features: [
       "CFM56-7B / -5B series",
-      "CF6-50C2 series",
+      "CF6-50C2 / -80C2 series",
+      "GE90 series",
+      "Trent 700 / 800 series",
       "Performance restoration & test",
       "Green-time & lease engines",
     ],
@@ -171,7 +175,7 @@ export const pillars = [
 
 export const stats = [
   { value: "100+", label: "Years of combined leadership experience" },
-  { value: "2019", label: "Founded" },
+  { value: "2018", label: "Founded" },
   { value: "Global", label: "Aircraft & engine asset provider" },
   { value: "FAA · EASA", label: "Certified MRO partner network" },
 ];
@@ -180,17 +184,20 @@ export const stats = [
 export const metrics = [
   { value: "100+", label: "Years combined leadership experience" },
   { value: "6", label: "Full-lifecycle service lines" },
-  { value: "4", label: "Specialized airframe & engine families" },
-  { value: "2019", label: "Founded on decades of expertise" },
+  { value: "6", label: "Specialized airframe & engine families" },
+  { value: "2018", label: "Founded on decades of expertise" },
 ];
 
 /** Keywords for the trust marquee — HAI's specialized fleet & credentials. */
 export const marqueeItems = [
-  "Boeing 737-800",
-  "Airbus A321",
+  "Boeing Narrow- & Widebody",
+  "Airbus Narrow- & Widebody",
   "CFM56-7B",
   "CFM56-5B",
   "CF6-50C2",
+  "CF6-80C2",
+  "GE90",
+  "Trent 700/800",
   "P2F Conversions",
   "VVIP Completions",
   "Engine MRO",
@@ -273,7 +280,7 @@ export const team: TeamMember[] = [
   },
   {
     name: "Thomas Leath",
-    role: "Partner & Chief Business Development Officer",
+    role: "Chief Business Development Officer",
     initials: "TL",
     expertise: [
       "Business Development",
@@ -282,7 +289,7 @@ export const team: TeamMember[] = [
       "Strategic Partnerships",
     ],
     bio: [
-      "Thomas Leath is a Partner and Chief Business Development Officer of Hemisphere Aerospace Investments. Tom collaborates with senior leadership to identify new investors and financial relationships that support HAI's long-term growth and development.",
+      "Thomas Leath is the Chief Business Development Officer of Hemisphere Aerospace Investments. Tom collaborates with senior leadership to identify new investors and financial relationships that support HAI's long-term growth and development.",
       "Tom's diverse career background ranges from film and Caribbean real estate to social-media consulting, government relations, and raising seed capital for multiple ventures. He leverages his extensive network and knowledge to create strategic and lucrative partnerships and opportunities for HAI and its clients.",
     ],
   },
