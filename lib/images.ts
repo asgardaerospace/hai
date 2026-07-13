@@ -71,6 +71,26 @@ export const images = {
     height: 1195,
     alt: "A modern aerospace-investment office at dusk overlooking an airfield with a parked jet",
   },
+
+  // Real HAI operations photography (used on specific service cards only).
+  spacexJet: {
+    src: "/images/spacex-jet.webp",
+    width: 1600,
+    height: 1195,
+    alt: "A silver executive Boeing 737 with a black SpaceX tail climbing out after takeoff",
+  },
+  engineFan: {
+    src: "/images/engine-fan.webp",
+    width: 1600,
+    height: 1195,
+    alt: "A close-up of a commercial turbofan's fan and core stages during technical inspection",
+  },
+  spacexCowl: {
+    src: "/images/spacex-cowl.webp",
+    width: 1600,
+    height: 1195,
+    alt: "A freshly finished gloss-black engine cowl bearing the SpaceX wordmark in a hangar",
+  },
 } satisfies Record<string, ImageAsset>;
 
 /** Poster frame for the hero video (first frame of the loop). */
@@ -81,7 +101,7 @@ export const serviceImages: Record<string, ImageAsset> = {
   "passenger-to-freighter-conversions": images.freighterNight,
   "vvip-business-jet-retrofits": images.vvipCabin,
   "commercial-jet-engine-mro": images.turbofanHangar,
-  "aircraft-trading-leasing": images.narrowbodyDusk,
-  "portfolio-technical-services": images.nacelleDetail,
+  "aircraft-trading-leasing": images.spacexJet,
+  "portfolio-technical-services": images.engineFan,
   "structured-finance": images.jetSilhouette,
 };
