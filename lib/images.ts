@@ -91,6 +91,20 @@ export const images = {
     height: 1195,
     alt: "A freshly finished gloss-black engine cowl bearing the SpaceX wordmark in a hangar",
   },
+
+  // Leadership portraits, shot against the Hemisphere logo wall.
+  johnSawyer: {
+    src: "/images/john-sawyer.webp",
+    width: 1402,
+    height: 1122,
+    alt: "John B. Sawyer in a dark suit, photographed beside the illuminated Hemisphere Aerospace Investments logo wall",
+  },
+  thomasLeath: {
+    src: "/images/thomas-leath.webp",
+    width: 1402,
+    height: 1122,
+    alt: "Thomas Leath in a navy suit, photographed beside the illuminated Hemisphere Aerospace Investments logo wall",
+  },
 } satisfies Record<string, ImageAsset>;
 
 /** Poster frame for the hero video (first frame of the loop). */

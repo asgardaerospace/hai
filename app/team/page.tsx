@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/reveal";
@@ -41,24 +42,14 @@ export default function TeamPage() {
             <Reveal key={member.name} delay={index * 80}>
               <article className="grid gap-8 overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition-shadow duration-500 hover:shadow-float sm:p-8 lg:grid-cols-12 lg:gap-10">
                 <div className="lg:col-span-4">
-                  {/* Premium monogram */}
-                  <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-navy-700 via-navy-800 to-navy-950">
-                    <div className="absolute inset-0 bg-grid opacity-30" aria-hidden />
-                    <div
-                      className="pointer-events-none absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-azure-500/25 blur-2xl"
-                      aria-hidden
+                  <div className="relative aspect-square overflow-hidden rounded-[1.5rem] bg-navy-900 ring-1 ring-inset ring-white/10">
+                    <Image
+                      src={member.photo.src}
+                      alt={member.photo.alt}
+                      fill
+                      sizes="(min-width: 1024px) 360px, (min-width: 640px) 85vw, 80vw"
+                      className="object-cover object-center"
                     />
-                    {/* Gold hairline ring */}
-                    <div
-                      className="absolute inset-5 rounded-[1.1rem] border border-gold-400/25"
-                      aria-hidden
-                    />
-                    <span className="relative font-display text-7xl font-medium tracking-tight text-white/95">
-                      {member.initials}
-                    </span>
-                    <span className="absolute bottom-4 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-gold-300/80">
-                      Hemisphere
-                    </span>
                   </div>
                   <div className="mt-5">
                     <h2 className="text-xl font-semibold text-navy-900">{member.name}</h2>
