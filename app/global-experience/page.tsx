@@ -173,7 +173,7 @@ const caseStudies = [
     body: [
       "HAI leadership has extensive experience structuring and executing large commercial aircraft portfolio transactions.",
       "John B. Sawyer was a principal in a major U.S. Air transaction involving more than 100 aircraft and a substantial spare parts inventory.",
-      "Across his career, Sawyer has completed more than 250 aircraft transactions and participated in major aircraft and engine acquisitions, portfolio sales, leasing programs, and asset repositioning strategies.",
+      "Across his career, Sawyer has completed more than 275 aircraft transactions and participated in major aircraft and engine acquisitions, portfolio sales, leasing programs, and asset repositioning strategies.",
     ],
   },
   {
@@ -236,8 +236,8 @@ const serviceRelationships = [
 const LEADERSHIP_INTRO =
   "HAI is led by aviation executives with experience spanning aircraft trading, leasing, MRO operations, aircraft modifications, passenger-to-freighter conversions, engine programs, portfolio management, structured finance, and technical asset management.";
 const LEADERSHIP_BIO = [
-  "John B. Sawyer is the Founder, Principal, and Chief Executive Officer of Hemisphere Aerospace Investments. He brings nearly 40 years of commercial aerospace experience, including more than two decades in executive and board-level leadership positions.",
-  "Sawyer has completed more than 250 aircraft transactions and has extensive experience originating, negotiating, structuring, managing, and closing major aircraft and engine transactions.",
+  "John B. Sawyer is the Founder, Chief Executive Officer, and Managing Partner of Hemisphere Aerospace Investments. He brings nearly 40 years of commercial aerospace experience, including 35 years in executive and board-level leadership positions.",
+  "Sawyer has completed more than 275 aircraft transactions and has extensive experience originating, negotiating, structuring, managing, and closing major aircraft and engine transactions.",
   "His background includes senior leadership roles across aircraft leasing, MRO organizations, aircraft trading platforms, technical asset management, and aviation investment organizations.",
 ];
 
@@ -694,7 +694,7 @@ export default function GlobalExperiencePage() {
                 <div className="mt-5">
                   <h3 className="text-xl font-semibold text-navy-900">John B. Sawyer</h3>
                   <p className="mt-1 text-sm font-semibold text-azure-600">
-                    Founder, Principal &amp; Chief Executive Officer
+                    Founder, Chief Executive Officer &amp; Managing Partner
                   </p>
                 </div>
               </div>

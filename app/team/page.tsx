@@ -42,7 +42,8 @@ export default function TeamPage() {
             <Reveal key={member.name} delay={index * 80}>
               <article className="grid gap-8 overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition-shadow duration-500 hover:shadow-float sm:p-8 lg:grid-cols-12 lg:gap-10">
                 <div className="lg:col-span-4">
-                  <div className="relative aspect-square overflow-hidden rounded-[1.5rem] bg-navy-900 ring-1 ring-inset ring-white/10">
+                  {/* 5:4 matches the source frame, so the logo wall is never cropped. */}
+                  <div className="relative aspect-[5/4] overflow-hidden rounded-[1.5rem] bg-navy-900 ring-1 ring-inset ring-white/10">
                     <Image
                       src={member.photo.src}
                       alt={member.photo.alt}

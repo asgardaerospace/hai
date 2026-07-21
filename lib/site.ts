@@ -266,7 +266,7 @@ export type TeamMember = {
 export const team: TeamMember[] = [
   {
     name: "John B. Sawyer",
-    role: "Founder, Principal & Chief Executive Officer",
+    role: "Founder, Chief Executive Officer & Managing Partner",
     photo: images.johnSawyer,
     expertise: [
       "Equipment Financing",
@@ -276,9 +276,11 @@ export const team: TeamMember[] = [
       "Portfolio Management",
     ],
     bio: [
-      "John Sawyer is the Founder, Principal, and Chief Executive Officer of Hemisphere Aerospace Investments, with almost 40 years of commercial aviation trading experience. He manages and oversees all commercial aspects of the company (providing strategic direction, cultivating new initiatives, performing due diligence, and interfacing directly with clients) and brings the ever-critical commercial perspective to executing HAI's strategic vision.",
-      "He possesses expert knowledge of equipment financing terms, lease and lending structures, risk analysis, documentation procedures, securitization, asset sales, and portfolio management. A solution-focused decision-maker with a strong aviation background, he motivates diverse cross-functional teams to complete projects on time and under budget in any dynamic domestic or international environment.",
-      "Prior to co-founding Hemisphere Aerospace Investments, John served as Chief Trading Officer for four boutique mid-size aircraft leasing companies, two in Europe and two in the United States. Before that, he was Chief Executive Officer of Hamilton Aerospace, a mid-size MRO located in Tucson, Arizona, specializing in narrow-body heavy overhaul and passenger-to-freighter conversions.",
+      "John B. Sawyer is the Founder, Chief Executive Officer, and Managing Partner of Hemisphere Aerospace Investments, managing and overseeing all commercial related aspects of the business. His duties include providing strategic direction, oversight, cultivating, introducing, and performing diligence on new initiatives and business opportunities. He interacts directly with the company's investors and customers. John is a proven leader with almost 40 years in the field of Commercial Aerospace, 35 of which have been at Executive and Board of Directors level positions. He consistently provides the ever-critical commercial perspective when it comes to executing HAI's long-term vision, and consistently provides lucrative returns for investors.",
+      "John's worldwide network of strategic relationships has greatly benefited investor groups over the years. He is a top-producing, analytical executive with a successful track record originating, negotiating, structuring, managing, and closing large transactions that generate significant net profit. He has expert level knowledge of equipment financing terms, lease/lending structures, risk analysis, documentation procedures, securitization, asset sales, portfolio management, reorganization, and workouts. He is a solution-focused decision-maker, with a strong aviation and technical background. He has the ability to motivate diverse cross-functional teams to complete projects on time, under budget, and meet or exceed all business targets in any dynamic, domestic or international environment.",
+      "Prior to co-founding Hemisphere Aerospace Investments, John served as the Chief Trading Officer for four boutique mid-size Aircraft leasing companies — two located in Europe and two in the United States. Prior to that he was the Chief Executive Officer of Hamilton Aerospace, a mid-size MRO located in Tucson, Arizona, specialized in narrow-body heavy overhaul & narrow-body passenger-to-freighter conversions.",
+      "John's longtime reputation has been that he pioneered the NTE (Not to Exceed) fixed price repair contracts for Airframe and Engine repairs, helping to streamline industry standards for basic repair costs.",
+      "John has completed over 275+ Aircraft Transactions spanning three decades, and has been involved in several of the largest used aircraft transactions on record, including the largest single recorded sale of used aircraft in aviation history. He was a principal in the 2003 US Airways transaction that included the purchase of 105 airplanes, and 400 tractor trailers of spare parts.",
     ],
   },
   {
@@ -290,6 +292,7 @@ export const team: TeamMember[] = [
       "Investor Relations",
       "Capital Raising",
       "Strategic Partnerships",
+      "Government Affairs",
     ],
     bio: [
       "Thomas Leath serves as Chief Business Development Officer of Hemisphere Aerospace Investments. Since joining HAI in 2019, he has led the Company's business development efforts, working alongside senior leadership to identify investors, establish strategic partnerships, and cultivate the financial relationships that support HAI's long-term growth. He is responsible for sourcing capital, expanding HAI's commercial network, and representing the Company across investor, industry, and government relationships.",
