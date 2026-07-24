@@ -83,8 +83,8 @@ submissions with [Resend](https://resend.com). Set these environment variables:
 | Variable             | Required | Notes                                                        |
 | -------------------- | -------- | ------------------------------------------------------------ |
 | `RESEND_API_KEY`     | Yes      | From https://resend.com/api-keys                             |
-| `CONTACT_TO_EMAIL`   | No       | Delivery inbox. Defaults to `info@hai-aero.com`.             |
-| `CONTACT_FROM_EMAIL` | No       | Verify `hai-aero.com` in Resend, then use an address on it.  |
+| `CONTACT_TO_EMAIL`   | No       | Delivery inbox. Defaults to `info@haiaero.com`.              |
+| `CONTACT_FROM_EMAIL` | No       | Verify `haiaero.com` in Resend, then use an address on it.   |
 
 Without `RESEND_API_KEY`, the form validates and shows a friendly "not configured
 yet" message instead of sending. The route also includes basic validation and a
@@ -94,17 +94,17 @@ honeypot field for spam protection.
 
 A new Resend account is in **test mode** until you verify a domain: it will only
 deliver to your Resend account's own email address, and only from
-`onboarding@resend.dev`. Attempting to send to `info@hai-aero.com` before verifying
+`onboarding@resend.dev`. Attempting to send to `info@haiaero.com` before verifying
 returns a `403 validation_error`. To enable real delivery:
 
-1. In Resend, go to **Domains → Add Domain** and add `hai-aero.com`.
+1. In Resend, go to **Domains → Add Domain** and add `haiaero.com`.
 2. Add the DKIM/SPF DNS records Resend shows you at your DNS provider, then click
    **Verify**.
 3. Set `CONTACT_FROM_EMAIL` to an address on that domain, e.g.
-   `Hemisphere Aerospace <noreply@hai-aero.com>` (in `.env.local` locally and in
+   `Hemisphere Aerospace <noreply@haiaero.com>` (in `.env.local` locally and in
    Vercel's environment variables for production).
 
-After that, submissions deliver to `CONTACT_TO_EMAIL` (`info@hai-aero.com`) with the
+After that, submissions deliver to `CONTACT_TO_EMAIL` (`info@haiaero.com`) with the
 sender's address set as `reply-to`.
 
 ## Deploying to Vercel

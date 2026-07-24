@@ -15,7 +15,7 @@ export const siteConfig = {
     "Hemisphere Aerospace Investments is a global provider of commercial aircraft and engine trading assets, specializing in Boeing and Airbus narrow- and widebody passenger-to-freighter conversions and the CFM56, CF6, GE90, and Rolls-Royce Trent engine series.",
   foundedYear: 2018,
   url: "https://hai-aero.com",
-  email: "info@hai-aero.com",
+  email: "info@haiaero.com",
   phone: "+12544358209",
   phoneDisplay: "+1 (254) 435-8209",
   address: {
