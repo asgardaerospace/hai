@@ -6,7 +6,7 @@ import { Reveal } from "@/components/reveal";
 import { PageHero } from "@/components/page-hero";
 import { CTABand } from "@/components/sections/cta-band";
 import { images } from "@/lib/images";
-import { team } from "@/lib/site";
+import { siteConfig, team } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Team",
@@ -14,9 +14,85 @@ export const metadata: Metadata = {
     "Meet the leadership of Hemisphere Aerospace Investments, proven leaders across commercial aircraft trading, MRO, and aviation finance.",
 };
 
+/** Monogram fallback for leaders whose approved headshot isn't available yet. */
+function initials(name: string) {
+  const parts = name.split(" ").filter(Boolean);
+  const first = parts[0] ?? "";
+  const last = parts.length > 1 ? parts[parts.length - 1] : "";
+  return `${first[0] ?? ""}${last[0] ?? ""}`.toUpperCase();
+}
+
+/* ------------------------------------------------------------------ */
+/* Structured data (JSON-LD) — mirrors the leadership content below     */
+/* ------------------------------------------------------------------ */
+
+const canonicalUrl = `${siteConfig.url}/team`;
+
+const organizationLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.name,
+  legalName: siteConfig.legalName,
+  alternateName: siteConfig.shortName,
+  url: siteConfig.url,
+  email: siteConfig.email,
+  telephone: siteConfig.phone,
+  foundingDate: String(siteConfig.foundedYear),
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.address.line1,
+    addressLocality: siteConfig.address.city,
+    addressRegion: siteConfig.address.state,
+    postalCode: siteConfig.address.zip,
+    addressCountry: "US",
+  },
+  employee: team.map((member) => ({
+    "@type": "Person",
+    name: member.name,
+    jobTitle: member.role,
+    description: member.bio[0],
+    knowsAbout: member.expertise,
+    url: canonicalUrl,
+    ...(member.photo ? { image: `${siteConfig.url}${member.photo.src}` } : {}),
+    worksFor: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+  })),
+};
+
+const webPageLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: `Team | ${siteConfig.shortName}`,
+  description: metadata.description,
+  url: canonicalUrl,
+  inLanguage: "en-US",
+  isPartOf: {
+    "@type": "WebSite",
+    name: siteConfig.name,
+    url: siteConfig.url,
+  },
+  about: {
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+  },
+};
+
 export default function TeamPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }}
+      />
+
       <PageHero
         eyebrow="Leadership"
         title={
@@ -44,13 +120,31 @@ export default function TeamPage() {
                 <div className="lg:col-span-4">
                   {/* 5:4 matches the source frame, so the logo wall is never cropped. */}
                   <div className="relative aspect-[5/4] overflow-hidden rounded-[1.5rem] bg-navy-900 ring-1 ring-inset ring-white/10">
-                    <Image
-                      src={member.photo.src}
-                      alt={member.photo.alt}
-                      fill
-                      sizes="(min-width: 1024px) 360px, (min-width: 640px) 85vw, 80vw"
-                      className="object-cover object-center"
-                    />
+                    {member.photo ? (
+                      <Image
+                        src={member.photo.src}
+                        alt={member.photo.alt}
+                        fill
+                        sizes="(min-width: 1024px) 360px, (min-width: 640px) 85vw, 80vw"
+                        className="object-cover object-center"
+                      />
+                    ) : (
+                      /* No approved headshot yet — monogram holds the frame. */
+                      <div
+                        role="img"
+                        aria-label={`${member.name} — portrait not available`}
+                        className="absolute inset-0 bg-grid"
+                      >
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_65%_65%_at_50%_38%,rgba(79,151,229,0.20),transparent_72%)]" />
+                        <span
+                          className="absolute inset-0 flex items-center justify-center font-display text-gradient text-5xl sm:text-6xl"
+                          /* Inline so it wins over .font-display's negative tracking. */
+                          style={{ letterSpacing: "0.08em", textIndent: "0.08em" }}
+                        >
+                          {initials(member.name)}
+                        </span>
+                      </div>
+                    )}
                   </div>
                   <div className="mt-5">
                     <h2 className="text-xl font-semibold text-navy-900">{member.name}</h2>

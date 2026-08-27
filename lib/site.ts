@@ -258,7 +258,8 @@ export const regions = [
 export type TeamMember = {
   name: string;
   role: string;
-  photo: ImageAsset;
+  /** Omit when no approved headshot exists — the card falls back to a monogram. */
+  photo?: ImageAsset;
   expertise: string[];
   bio: string[];
 };
@@ -284,6 +285,23 @@ export const team: TeamMember[] = [
     ],
   },
   {
+    name: "Tyler Sawyer",
+    role: "President",
+    expertise: [
+      "Financial Strategy",
+      "Aircraft & Engine Transactions",
+      "Investment Opportunities",
+      "Aviation Operations",
+      "Government & Financial Policy",
+    ],
+    bio: [
+      "Tyler Sawyer serves as President of Hemisphere Aerospace Investments, bringing experience across finance, aviation operations, business development, and financial policy. Working alongside senior leadership, he supports HAI's financial strategy, aircraft and engine transactions, investment opportunities, and continued growth across the commercial aerospace market.",
+      "Tyler's experience with Hemisphere began while attending Trinity University, when he worked with the Company throughout his college summers. He spent two summers in Kingman, Arizona, overseeing the overhaul of three decommissioned DHL aircraft, gaining firsthand experience in aircraft maintenance, asset management, project oversight, and the operational and financial considerations involved in returning commercial aviation assets to market.",
+      "Prior to returning to aviation, Tyler spent six years working in financial and regulatory policy in Washington, D.C., ultimately serving as Legislative Director for a United States Congressman. During his tenure, he worked with major companies, financial institutions, business leaders, and government entities on investment, economic development, and policy initiatives, developing an extensive network across the public and private sectors.",
+      "Tyler graduated from Trinity University in 2020 with a Bachelor of Science in Finance and served as captain of the men's basketball team. His combination of financial expertise, aviation experience, government relationships, and business leadership supports HAI's investment strategy and continued expansion within the commercial aerospace industry.",
+    ],
+  },
+  {
     name: "Thomas Leath",
     role: "Chief Business Development Officer",
     photo: images.thomasLeath,
@@ -299,6 +317,38 @@ export const team: TeamMember[] = [
       "Tom brings more than three decades of entrepreneurial and business development experience spanning aerospace, strategic communications, media, real estate, and private investment. Throughout his career, he has successfully built companies, developed strategic partnerships, and helped raise seed capital for emerging ventures. His experience combines business strategy, relationship development, integrated marketing, and government affairs, enabling him to connect organizations with the capital, resources, and partnerships needed to accelerate growth.",
       "At HAI, Tom plays a central role in expanding the Company's commercial aerospace platform, supporting aircraft and engine transactions, aviation investment opportunities, passenger-to-freighter conversion programs, and strategic alliances with airlines, operators, maintenance organizations, financial institutions, and industry partners. His extensive professional network and collaborative approach have helped position HAI for continued growth across global commercial aerospace markets.",
       "A graduate of Baylor University with a Bachelor of Science in Political Science, Tom is a proud Texan who believes lasting business relationships are built on integrity, trust, and collaboration. He remains actively engaged in the Waco community and is committed to creating long-term value for HAI's clients, partners, and investors.",
+    ],
+  },
+  {
+    name: "Alex Hart",
+    role: "Chief Financial Officer",
+    expertise: [
+      "Financial Operations",
+      "Accounting",
+      "Government Contracting",
+      "Regulatory Compliance",
+      "Financial Systems & Scaling",
+    ],
+    bio: [
+      "Alex Hart serves as Chief Financial Officer for Hemisphere Aerospace Investments and Hemisphere Aerospace Defense, bringing extensive experience in financial operations, accounting, government contracting, regulatory compliance, and organizational growth. He specializes in building scalable financial systems and teams capable of supporting rapidly growing organizations and complex operating environments.",
+      "Within the defense sector, Alex helped scale a finance and accounting organization supporting growth from approximately 30 to more than 200 employees. He directed cash disbursement operations responsible for approximately $1.5 billion in subcontractor payments, supported financial strategy associated with roughly $2.5 billion in government contract funding, and helped onboard more than 200 vendors under established compliance controls. He also led finance professionals specializing in regulatory compliance and government accounting standards and supported the development of financial systems for an international counterpart organization.",
+      "Alex's prior experience includes managing financial operations associated with more than $400 million in real estate assets across a nationwide portfolio. He has led accounting teams, developed financial processes and policies during periods of rapid organizational growth, and supported tax planning and business development across a diverse client base.",
+      "A graduate of Texas A&M University with a Bachelor of Science in Accounting, Alex brings a disciplined approach to financial strategy, compliance, and operational planning that supports the continued growth of HAI and HAD. Outside of work, he is an avid Texas A&M fan and enjoys fishing and hiking.",
+    ],
+  },
+  {
+    name: "Rob Riedell",
+    role: "Programs & Procurement",
+    expertise: [
+      "Program Execution",
+      "Contracting & Purchasing",
+      "Vendor & Supplier Management",
+      "Materials & Services Procurement",
+      "Cost & Schedule Tracking",
+    ],
+    bio: [
+      "Rob Riedell leads program execution and procurement across Hemisphere Aerospace Investments and Hemisphere Aerospace Defense.",
+      "His work includes contracting, purchasing, supplier coordination, material and service sourcing, and tracking cost, schedule, and supplier performance to keep programs organized, supplied, and moving forward.",
     ],
   },
 ];
