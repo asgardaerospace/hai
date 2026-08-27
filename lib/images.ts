@@ -107,8 +107,8 @@ export const images = {
   },
   daltonSawyer: {
     src: "/images/dalton-sawyer.webp",
-    width: 1402,
-    height: 1122,
+    width: 1305,
+    height: 1044,
     alt: "Dalton Sawyer in a dark suit and navy tie, photographed beside the illuminated Hemisphere Aerospace Investments logo wall",
   },
   thomasLeath: {
