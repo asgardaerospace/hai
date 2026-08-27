@@ -99,6 +99,18 @@ export const images = {
     height: 1122,
     alt: "John B. Sawyer in a dark suit, photographed beside the illuminated Hemisphere Aerospace Investments logo wall",
   },
+  tylerSawyer: {
+    src: "/images/tyler-sawyer.webp",
+    width: 1402,
+    height: 1122,
+    alt: "Tyler Sawyer in a blue jacket and open-collar white shirt, photographed beside the illuminated Hemisphere Aerospace Investments logo wall",
+  },
+  daltonSawyer: {
+    src: "/images/dalton-sawyer.webp",
+    width: 1402,
+    height: 1122,
+    alt: "Dalton Sawyer in a dark suit and navy tie, photographed beside the illuminated Hemisphere Aerospace Investments logo wall",
+  },
   thomasLeath: {
     src: "/images/thomas-leath.webp",
     width: 1402,

@@ -287,6 +287,7 @@ export const team: TeamMember[] = [
   {
     name: "Tyler Sawyer",
     role: "President",
+    photo: images.tylerSawyer,
     expertise: [
       "Financial Strategy",
       "Aircraft & Engine Transactions",
@@ -334,6 +335,22 @@ export const team: TeamMember[] = [
       "Within the defense sector, Alex helped scale a finance and accounting organization supporting growth from approximately 30 to more than 200 employees. He directed cash disbursement operations responsible for approximately $1.5 billion in subcontractor payments, supported financial strategy associated with roughly $2.5 billion in government contract funding, and helped onboard more than 200 vendors under established compliance controls. He also led finance professionals specializing in regulatory compliance and government accounting standards and supported the development of financial systems for an international counterpart organization.",
       "Alex's prior experience includes managing financial operations associated with more than $400 million in real estate assets across a nationwide portfolio. He has led accounting teams, developed financial processes and policies during periods of rapid organizational growth, and supported tax planning and business development across a diverse client base.",
       "A graduate of Texas A&M University with a Bachelor of Science in Accounting, Alex brings a disciplined approach to financial strategy, compliance, and operational planning that supports the continued growth of HAI and HAD. Outside of work, he is an avid Texas A&M fan and enjoys fishing and hiking.",
+    ],
+  },
+  {
+    name: "Dalton Sawyer",
+    role: "Technical Director",
+    photo: images.daltonSawyer,
+    expertise: [
+      "Technical Leadership",
+      "Systems Integration",
+      "Engineering Coordination",
+      "Technical Planning",
+      "Technical Standards",
+    ],
+    bio: [
+      "Dalton Sawyer serves as Technical Director for Hemisphere Aerospace Investments and Hemisphere Aerospace Defense, providing technical leadership across commercial and defense programs. He works closely with engineering teams, program leadership, and strategic partners to ensure technical requirements, systems integration, and engineering efforts remain aligned with mission objectives and program goals.",
+      "Dalton's responsibilities include technical planning, engineering coordination, systems integration, and the development of technical standards that support complex aerospace initiatives. He helps translate program requirements into practical engineering solutions while coordinating cross-functional teams to ensure projects are executed efficiently, reliably, and in alignment with the strategic objectives of HAI and HAD.",
     ],
   },
   {
