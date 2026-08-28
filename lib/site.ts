@@ -304,7 +304,7 @@ export const team: TeamMember[] = [
   },
   {
     name: "Thomas Leath",
-    role: "Chief Business Development Officer",
+    role: "Chief Business Development Officer & Managing Member",
     photo: images.thomasLeath,
     expertise: [
       "Business Development",
@@ -314,7 +314,7 @@ export const team: TeamMember[] = [
       "Government Affairs",
     ],
     bio: [
-      "Thomas Leath serves as Chief Business Development Officer of Hemisphere Aerospace Investments. Since joining HAI in 2019, he has led the Company's business development efforts, working alongside senior leadership to identify investors, establish strategic partnerships, and cultivate the financial relationships that support HAI's long-term growth. He is responsible for sourcing capital, expanding HAI's commercial network, and representing the Company across investor, industry, and government relationships.",
+      "Thomas Leath serves as Chief Business Development Officer and Managing Member of Hemisphere Aerospace Investments. Since joining HAI in 2019, he has led the Company's business development efforts, working alongside senior leadership to identify investors, establish strategic partnerships, and cultivate the financial relationships that support HAI's long-term growth. He is responsible for sourcing capital, expanding HAI's commercial network, and representing the Company across investor, industry, and government relationships.",
       "Tom brings more than three decades of entrepreneurial and business development experience spanning aerospace, strategic communications, media, real estate, and private investment. Throughout his career, he has successfully built companies, developed strategic partnerships, and helped raise seed capital for emerging ventures. His experience combines business strategy, relationship development, integrated marketing, and government affairs, enabling him to connect organizations with the capital, resources, and partnerships needed to accelerate growth.",
       "At HAI, Tom plays a central role in expanding the Company's commercial aerospace platform, supporting aircraft and engine transactions, aviation investment opportunities, passenger-to-freighter conversion programs, and strategic alliances with airlines, operators, maintenance organizations, financial institutions, and industry partners. His extensive professional network and collaborative approach have helped position HAI for continued growth across global commercial aerospace markets.",
       "A graduate of Baylor University with a Bachelor of Science in Political Science, Tom is a proud Texan who believes lasting business relationships are built on integrity, trust, and collaboration. He remains actively engaged in the Waco community and is committed to creating long-term value for HAI's clients, partners, and investors.",
