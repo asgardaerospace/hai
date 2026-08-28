@@ -323,6 +323,7 @@ export const team: TeamMember[] = [
   {
     name: "Alex Hart",
     role: "Chief Financial Officer",
+    photo: images.alexHart,
     expertise: [
       "Financial Operations",
       "Accounting",

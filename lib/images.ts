@@ -111,6 +111,12 @@ export const images = {
     height: 1044,
     alt: "Dalton Sawyer in a dark suit and navy tie, photographed beside the illuminated Hemisphere Aerospace Investments logo wall",
   },
+  alexHart: {
+    src: "/images/alex-hart.webp",
+    width: 1320,
+    height: 1056,
+    alt: "Alex Hart in a charcoal suit and open-collar white shirt, photographed beside the illuminated Hemisphere Aerospace Investments logo wall",
+  },
   thomasLeath: {
     src: "/images/thomas-leath.webp",
     width: 1402,
