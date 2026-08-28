@@ -355,18 +355,19 @@ export const team: TeamMember[] = [
     ],
   },
   {
-    name: "Rob Riedell",
-    role: "Programs & Procurement",
+    name: "Robert Riedell",
+    role: "Director of Programs",
     expertise: [
       "Program Execution",
-      "Contracting & Purchasing",
-      "Vendor & Supplier Management",
-      "Materials & Services Procurement",
-      "Cost & Schedule Tracking",
+      "Aircraft Modification",
+      "Heavy Maintenance & MRO",
+      "FAA Part 145 Certification",
+      "Engineering Leadership",
     ],
     bio: [
-      "Rob Riedell leads program execution and procurement across Hemisphere Aerospace Investments and Hemisphere Aerospace Defense.",
-      "His work includes contracting, purchasing, supplier coordination, material and service sourcing, and tracking cost, schedule, and supplier performance to keep programs organized, supplied, and moving forward.",
+      "Robert Riedell serves as Director of Programs for Hemisphere Aerospace Investments, bringing more than 30 years of aerospace leadership experience spanning commercial and military aviation, aircraft modification, engineering, heavy maintenance, certification, and complex program execution.",
+      "Prior to his current role, Robert served as General Manager of Level 5 Aerospace, where he led the establishment and FAA Part 145 certification of a new MRO operation. He previously managed a Boeing 737-800 modification program for HAI from acquisition through heavy maintenance, refurbishment, engineering changes, certification, and return to service. Robert also spent nearly a decade with L3Harris Integrated Aerospace Systems in senior engineering and program leadership roles and completed a 20-year career in the United States Air Force.",
+      "Robert holds a Master of Aeronautical Science in Aviation Aerospace Management from Embry-Riddle Aeronautical University, a B.S. in Mechanical Engineering from North Carolina State University, and is a certified Project Management Professional (PMP).",
     ],
   },
 ];
