@@ -281,7 +281,7 @@ export const team: TeamMember[] = [
       "John's worldwide network of strategic relationships has greatly benefited investor groups over the years. He is a top-producing, analytical executive with a successful track record originating, negotiating, structuring, managing, and closing large transactions that generate significant net profit. He has expert level knowledge of equipment financing terms, lease/lending structures, risk analysis, documentation procedures, securitization, asset sales, portfolio management, reorganization, and workouts. He is a solution-focused decision-maker, with a strong aviation and technical background. He has the ability to motivate diverse cross-functional teams to complete projects on time, under budget, and meet or exceed all business targets in any dynamic, domestic or international environment.",
       "Prior to co-founding Hemisphere Aerospace Investments, John served as the Chief Trading Officer for four boutique mid-size Aircraft leasing companies — two located in Europe and two in the United States. Prior to that he was the Chief Executive Officer of Hamilton Aerospace, a mid-size MRO located in Tucson, Arizona, specialized in narrow-body heavy overhaul & narrow-body passenger-to-freighter conversions.",
       "John's longtime reputation has been that he pioneered the NTE (Not to Exceed) fixed price repair contracts for Airframe and Engine repairs, helping to streamline industry standards for basic repair costs.",
-      "John has completed over 275+ Aircraft Transactions spanning three decades, and has been involved in several of the largest used aircraft transactions on record, including the largest single recorded sale of used aircraft in aviation history. He was a principal in the 2003 US Airways transaction that included the purchase of 105 airplanes, and 400 tractor trailers of spare parts.",
+      "John has completed over 275+ Aircraft Transactions spanning three decades, and has been involved in several of the largest used aircraft transactions on record, including the largest single recorded sale of used aircraft in aviation history. He was a principal in the 2003 US Airways transaction that included the purchase of 105 airplanes and a substantial inventory of spare parts.",
     ],
   },
   {
@@ -300,6 +300,23 @@ export const team: TeamMember[] = [
       "Tyler's experience with Hemisphere began while attending Trinity University, when he worked with the Company throughout his college summers. He spent two summers in Kingman, Arizona, overseeing the overhaul of three decommissioned DHL aircraft, gaining firsthand experience in aircraft maintenance, asset management, project oversight, and the operational and financial considerations involved in returning commercial aviation assets to market.",
       "Prior to returning to aviation, Tyler spent six years working in financial and regulatory policy in Washington, D.C., ultimately serving as Legislative Director for a United States Congressman. During his tenure, he worked with major companies, financial institutions, business leaders, and government entities on investment, economic development, and policy initiatives, developing an extensive network across the public and private sectors.",
       "Tyler graduated from Trinity University in 2020 with a Bachelor of Science in Finance and served as captain of the men's basketball team. His combination of financial expertise, aviation experience, government relationships, and business leadership supports HAI's investment strategy and continued expansion within the commercial aerospace industry.",
+    ],
+  },
+  {
+    name: "Cody Blossman",
+    role: "Chief Operating Officer",
+    expertise: [
+      "Operations Leadership",
+      "Strategic Execution",
+      "Organizational Development",
+      "Risk Management",
+      "Team Development",
+    ],
+    bio: [
+      "Cody Blossman serves as Chief Operating Officer of Hemisphere Aerospace Investments, providing executive leadership across operations, strategic execution, organizational development, and the continued growth of HAI's global aerospace platform. He works alongside senior leadership to align people, processes, and resources while strengthening the operational capabilities required to support the Company's expanding commercial aerospace activities.",
+      "Prior to joining HAI, Cody served as Chief Deputy of the McLennan County Sheriff's Office, where he led large-scale operations, specialized teams, strategic initiatives, and multi-agency programs within one of the region's most complex public-safety organizations. His career also included six years on the Executive Board of the Waco Texas Anti-Gang Center, five years as a Special Deputy U.S. Marshal with the Lone Star Fugitive Federal Task Force, and service as a SWAT Team Commander. These roles developed extensive experience in executive leadership, organizational management, strategic partnerships, risk management, and disciplined execution in demanding environments.",
+      "At HAI, Cody applies that experience to strengthening operations across aircraft and engine trading, asset management, technical services, conversions, MRO, leasing, and structured aviation finance. His focus on accountability, team development, and operational execution helps ensure HAI has the organizational infrastructure necessary to support its clients, partners, and continued growth.",
+      "A graduate of Texas State University and a native of Waco, Texas, Cody brings a leadership philosophy centered on building exceptional teams, establishing accountability, and executing with purpose.",
     ],
   },
   {
@@ -351,7 +368,7 @@ export const team: TeamMember[] = [
     ],
     bio: [
       "Dalton Sawyer serves as Technical Director for Hemisphere Aerospace Investments and Hemisphere Aerospace Defense, providing technical leadership across commercial and defense programs. He works closely with engineering teams, program leadership, and strategic partners to ensure technical requirements, systems integration, and engineering efforts remain aligned with mission objectives and program goals.",
-      "Dalton's responsibilities include technical planning, engineering coordination, systems integration, and the development of technical standards that support complex aerospace initiatives. He helps translate program requirements into practical engineering solutions while coordinating cross-functional teams to ensure projects are executed efficiently, reliably, and in alignment with the strategic objectives of HAI and HAD.",
+      "Dalton's responsibilities include technical planning, engineering coordination, systems integration, and the development of technical standards that support complex aerospace initiatives. He helps translate program requirements into practical engineering solutions while coordinating cross-functional teams to ensure projects are executed efficiently, reliably, and in alignment with the strategic objectives of HAI and HAD. Dalton also holds a degree in finance, complementing his technical leadership with a grounding in the commercial and financial considerations that shape HAI's aerospace programs.",
     ],
   },
   {
