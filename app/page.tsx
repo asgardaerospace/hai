@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import {
   CheckCircle,
@@ -23,6 +24,14 @@ import { GlobalReach } from "@/components/sections/global-reach";
 import { CTABand } from "@/components/sections/cta-band";
 import { images } from "@/lib/images";
 import { siteConfig, pillars, positioning } from "@/lib/site";
+import {
+  organizationLd,
+  organizationDescription,
+  webSiteLd,
+  webPageLd,
+  faqLd,
+  ld,
+} from "@/lib/schema";
 
 const introFeatures = [
   "FAA- & EASA-certified MRO partners",
@@ -47,9 +56,91 @@ const trustItems = [
   { icon: GlobeHemisphereWest, label: "Global reach" },
 ];
 
+
+/* ------------------------------------------------------------------ */
+/* SEO — the homepage is the principal entity-definition page          */
+/* ------------------------------------------------------------------ */
+
+const PAGE_TITLE = `${siteConfig.name}: Commercial Aircraft & Engine Trading`;
+
+export const metadata: Metadata = {
+  title: { absolute: PAGE_TITLE },
+  description: siteConfig.description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: siteConfig.name,
+    title: PAGE_TITLE,
+    description: siteConfig.description,
+    url: "/",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: siteConfig.description,
+  },
+};
+
+/**
+ * Answers to the questions search and AI systems ask about this company.
+ * This array is the single source of truth for both the visible FAQ section
+ * and the FAQPage structured data, so the two can never drift apart.
+ *
+ * Every answer here restates only what the site already publishes elsewhere.
+ * No new capability, scope, or relationship claim is introduced.
+ */
+const homeFaqs = [
+  {
+    q: `What is ${siteConfig.name}?`,
+    a: `${siteConfig.name} is a commercial aerospace company founded in ${siteConfig.foundedYear} and based in ${siteConfig.address.city}, ${siteConfig.address.state}. The company trades, converts, leases, finances, and technically manages commercial aircraft and engines for airlines, delivery services, lessors, and investors.`,
+  },
+  {
+    q: `Does ${siteConfig.name} perform conversions and overhauls itself?`,
+    a: `No. ${siteConfig.name} sources the assets, structures the capital, and manages the programs. The physical work — passenger-to-freighter conversions, VVIP completions, and engine overhaul — is executed through strategic alliances with premier FAA- and EASA-certified partners, under HAI project management.`,
+  },
+  {
+    q: `Who does ${siteConfig.name} work with?`,
+    a: "Airlines and delivery services expanding freight capability, lessors and investors moving aircraft and engine assets, and financial institutions requiring technical oversight of aviation portfolios. Aircraft owners, operators, and counterparties can submit an opportunity through the contact page.",
+  },
+  {
+    q: `How do I submit an aircraft or engine opportunity to ${siteConfig.shortName}?`,
+    a: `Contact ${siteConfig.name} at ${siteConfig.email} or through the contact page. Include the aircraft or engine type, asset location, general operational or maintenance status, transaction objective, and preferred timeline when available.`,
+  },
+];
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: ld(organizationLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: ld(webSiteLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: ld(
+            webPageLd({
+              path: "/",
+              name: PAGE_TITLE,
+              // The scope-neutral Organization description, not
+              // `siteConfig.description` — the latter names specific airframes
+              // and engine series that are pending management verification and
+              // must not be asserted in structured data until confirmed.
+              description: organizationDescription,
+            }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: ld(faqLd(homeFaqs)) }}
+      />
+
       <Hero />
       <TrustMarquee />
 
@@ -267,6 +358,26 @@ export default function HomePage() {
             <span className="h-px w-8 bg-gold-400" aria-hidden />
           </div>
         </Reveal>
+      </Section>
+
+      {/* ===================== Common questions ===================== */}
+      {/* Visible counterpart to the FAQPage structured data above. Each answer
+          is written to stand on its own when lifted out of the page, because
+          that is the unit AI answer engines extract and cite. */}
+      <Section id="faq" className="bg-slate-50">
+        <SectionHeading
+          align="center"
+          eyebrow="Common Questions"
+          title={`What ${siteConfig.shortName} does, and how to engage us`}
+        />
+        <div className="mx-auto mt-14 grid max-w-4xl gap-x-10 gap-y-9 sm:grid-cols-2">
+          {homeFaqs.map((faq, i) => (
+            <Reveal key={faq.q} delay={i * 70}>
+              <h3 className="text-lg font-semibold text-navy-900">{faq.q}</h3>
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-slate-600">{faq.a}</p>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       {/* ========================= CTA band ========================= */}

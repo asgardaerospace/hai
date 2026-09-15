@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig, navLinks, services } from "@/lib/site";
 
 export function Footer() {
-  const year = 2026;
+  const year = new Date().getFullYear();
 
   return (
     <footer className="relative overflow-hidden bg-navy-900 text-navy-100">

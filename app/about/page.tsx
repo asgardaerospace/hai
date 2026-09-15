@@ -18,12 +18,24 @@ import { SpotlightCard } from "@/components/spotlight-card";
 import { PageHero } from "@/components/page-hero";
 import { CTABand } from "@/components/sections/cta-band";
 import { images } from "@/lib/images";
-import { stats } from "@/lib/site";
+import { siteConfig, stats } from "@/lib/site";
+import { webPageLd, breadcrumbLd, ld } from "@/lib/schema";
+
+const PAGE_DESCRIPTION =
+  "Founded in 2018, Hemisphere Aerospace Investments is a global provider of commercial aircraft and engine trading, portfolio management, and technical services, bridging financial, operational, and technical expertise.";
 
 export const metadata: Metadata = {
-  title: "About",
-  description:
-    "Founded in 2018, Hemisphere Aerospace Investments is a global provider of commercial aircraft and engine trading, portfolio management, and technical services, bridging financial, operational, and technical expertise.",
+  title: "About — Aircraft Trading, Conversions & Aviation Finance Since 2018",
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: "/about" },
+  openGraph: {
+    type: "website",
+    siteName: siteConfig.name,
+    title: `About ${siteConfig.name}`,
+    description: PAGE_DESCRIPTION,
+    url: "/about",
+    locale: "en_US",
+  },
 };
 
 const capabilities = [
@@ -77,6 +89,25 @@ const values = [
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: ld(
+            webPageLd({
+              path: "/about",
+              name: `About ${siteConfig.name}`,
+              description: PAGE_DESCRIPTION,
+            }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: ld(breadcrumbLd([{ name: "About", path: "/about" }])),
+        }}
+      />
+
       <PageHero
         eyebrow="About HAI"
         title={

@@ -8,10 +8,22 @@ import { PageHero } from "@/components/page-hero";
 import { ContactForm } from "@/components/contact-form";
 import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
+import { organizationLd, webPageLd, breadcrumbLd, ld } from "@/lib/schema";
+
+const PAGE_DESCRIPTION = `Contact ${siteConfig.name} about aircraft and engine opportunities, passenger-to-freighter conversion programs, engine MRO, leasing, or structured aviation finance. Email ${siteConfig.email} or call ${siteConfig.phoneDisplay}.`;
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: `Get in touch with ${siteConfig.name}. Email ${siteConfig.email} or send us a message about conversions, engines, trading, or finance.`,
+  title: "Contact — Submit an Aircraft or Engine Opportunity",
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    type: "website",
+    siteName: siteConfig.name,
+    title: `Contact ${siteConfig.name}`,
+    description: PAGE_DESCRIPTION,
+    url: "/contact",
+    locale: "en_US",
+  },
 };
 
 const details = [
@@ -62,6 +74,33 @@ const details = [
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: ld({
+            ...webPageLd({
+              path: "/contact",
+              name: `Contact ${siteConfig.name}`,
+              description: PAGE_DESCRIPTION,
+            }),
+            "@type": "ContactPage",
+            mainEntity: {
+              "@id": organizationLd["@id"],
+              "@type": "Organization",
+              name: organizationLd.name,
+              contactPoint: organizationLd.contactPoint,
+              address: organizationLd.address,
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: ld(breadcrumbLd([{ name: "Contact", path: "/contact" }])),
+        }}
+      />
+
       <PageHero
         eyebrow="Contact"
         title={

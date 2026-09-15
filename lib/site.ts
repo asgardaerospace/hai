@@ -14,7 +14,13 @@ export const siteConfig = {
   description:
     "Hemisphere Aerospace Investments is a global provider of commercial aircraft and engine trading assets, specializing in Boeing and Airbus narrow- and widebody passenger-to-freighter conversions and the CFM56, CF6, GE90, and Rolls-Royce Trent engine series.",
   foundedYear: 2018,
-  url: "https://hai-aero.com",
+  /**
+   * Canonical production hostname. Verified 2026-09-05: the apex issues a
+   * path-preserving 308 to `www`, so `www` is the host that actually serves
+   * 200s. Every canonical, sitemap entry, Open Graph URL and schema @id is
+   * derived from this one value — do not hardcode the hostname anywhere else.
+   */
+  url: "https://www.hai-aero.com",
   email: "info@haiaero.com",
   phone: "+12544358209",
   phoneDisplay: "+1 (254) 435-8209",
@@ -34,6 +40,7 @@ export const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Global Experience", href: "/global-experience" },
   { label: "Team", href: "/team" },
   { label: "Contact", href: "/contact" },
 ];
@@ -177,6 +184,16 @@ export const pillars = [
 ];
 
 export const stats = [
+  /**
+   * "100+ years of combined experience" is APPROVED AND VERIFIED by management
+   * (confirmation 2026-09-05): HAI's current leadership team has more than 100
+   * years of combined experience. No further verification of this metric is
+   * required — do not re-flag it in future claim reviews.
+   *
+   * It is rendered server-side by `Counter`, which is contractually required to
+   * emit the real value in the HTML rather than a placeholder zero. See the SSR
+   * contract note in components/counter.tsx before changing that component.
+   */
   { value: "100+", label: "Years of combined leadership experience" },
   { value: "2018", label: "Founded" },
   { value: "Global", label: "Aircraft & engine asset provider" },
@@ -317,24 +334,6 @@ export const team: TeamMember[] = [
       "Prior to joining HAI, Cody served as Chief Deputy of the McLennan County Sheriff's Office, where he led large-scale operations, specialized teams, strategic initiatives, and multi-agency programs within one of the region's most complex public-safety organizations. His career also included six years on the Executive Board of the Waco Texas Anti-Gang Center, five years as a Special Deputy U.S. Marshal with the Lone Star Fugitive Federal Task Force, and service as a SWAT Team Commander. These roles developed extensive experience in executive leadership, organizational management, strategic partnerships, risk management, and disciplined execution in demanding environments.",
       "At HAI, Cody applies that experience to strengthening operations across aircraft and engine trading, asset management, technical services, conversions, MRO, leasing, and structured aviation finance. His focus on accountability, team development, and operational execution helps ensure HAI has the organizational infrastructure necessary to support its clients, partners, and continued growth.",
       "A graduate of Texas State University and a native of Waco, Texas, Cody brings a leadership philosophy centered on building exceptional teams, establishing accountability, and executing with purpose.",
-    ],
-  },
-  {
-    name: "Thomas Leath",
-    role: "Chief Business Development Officer & Managing Member",
-    photo: images.thomasLeath,
-    expertise: [
-      "Business Development",
-      "Investor Relations",
-      "Capital Raising",
-      "Strategic Partnerships",
-      "Government Affairs",
-    ],
-    bio: [
-      "Thomas Leath serves as Chief Business Development Officer and Managing Member of Hemisphere Aerospace Investments. Since joining HAI in 2019, he has led the Company's business development efforts, working alongside senior leadership to identify investors, establish strategic partnerships, and cultivate the financial relationships that support HAI's long-term growth. He is responsible for sourcing capital, expanding HAI's commercial network, and representing the Company across investor, industry, and government relationships.",
-      "Tom brings more than three decades of entrepreneurial and business development experience spanning aerospace, strategic communications, media, real estate, and private investment. Throughout his career, he has successfully built companies, developed strategic partnerships, and helped raise seed capital for emerging ventures. His experience combines business strategy, relationship development, integrated marketing, and government affairs, enabling him to connect organizations with the capital, resources, and partnerships needed to accelerate growth.",
-      "At HAI, Tom plays a central role in expanding the Company's commercial aerospace platform, supporting aircraft and engine transactions, aviation investment opportunities, passenger-to-freighter conversion programs, and strategic alliances with airlines, operators, maintenance organizations, financial institutions, and industry partners. His extensive professional network and collaborative approach have helped position HAI for continued growth across global commercial aerospace markets.",
-      "A graduate of Baylor University with a Bachelor of Science in Political Science, Tom is a proud Texan who believes lasting business relationships are built on integrity, trust, and collaboration. He remains actively engaged in the Waco community and is committed to creating long-term value for HAI's clients, partners, and investors.",
     ],
   },
   {

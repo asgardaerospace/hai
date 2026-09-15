@@ -23,9 +23,14 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  alternates: { canonical: "/" },
   title: {
     default: `${siteConfig.name}: Commercial Aircraft & Engine Trading`,
-    template: `%s | ${siteConfig.shortName}`,
+    // The full company name, not the abbreviation. In aviation search "HAI" has
+    // decades of citations pointing at Helicopter Association International
+    // (rebranded Vertical Aviation International in 2024), so the abbreviation
+    // is a weak entity token to hang every page title on.
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [

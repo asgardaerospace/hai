@@ -73,11 +73,17 @@ export const images = {
   },
 
   // Real HAI operations photography (used on specific service cards only).
-  spacexJet: {
-    src: "/images/spacex-jet.webp",
+  //
+  // DO NOT name the operator in filenames, alt text, captions, or copy. The
+  // customer these frames were shot for is under NDA. Textual references were
+  // removed from the site in July 2026, but these two assets kept the operator
+  // in both their filename and their alt text until 2026-09-05 — alt text is
+  // indexed and image URLs are public, so that was a live disclosure.
+  operations737: {
+    src: "/images/operations-737.webp",
     width: 1600,
     height: 1195,
-    alt: "A silver executive Boeing 737 with a black SpaceX tail climbing out after takeoff",
+    alt: "A silver executive Boeing 737 climbing out after takeoff",
   },
   engineFan: {
     src: "/images/engine-fan.webp",
@@ -85,11 +91,11 @@ export const images = {
     height: 1195,
     alt: "A close-up of a commercial turbofan's fan and core stages during technical inspection",
   },
-  spacexCowl: {
-    src: "/images/spacex-cowl.webp",
+  operationsCowl: {
+    src: "/images/operations-cowl.webp",
     width: 1600,
     height: 1195,
-    alt: "A freshly finished gloss-black engine cowl bearing the SpaceX wordmark in a hangar",
+    alt: "A freshly finished gloss-black engine cowl in a hangar",
   },
 
   // Leadership portraits, shot against the Hemisphere logo wall.
@@ -117,12 +123,6 @@ export const images = {
     height: 1056,
     alt: "Alex Hart in a charcoal suit and open-collar white shirt, photographed beside the illuminated Hemisphere Aerospace Investments logo wall",
   },
-  thomasLeath: {
-    src: "/images/thomas-leath.webp",
-    width: 1402,
-    height: 1122,
-    alt: "Thomas Leath in a navy suit, photographed beside the illuminated Hemisphere Aerospace Investments logo wall",
-  },
 } satisfies Record<string, ImageAsset>;
 
 /** Poster frame for the hero video (first frame of the loop). */
@@ -133,7 +133,7 @@ export const serviceImages: Record<string, ImageAsset> = {
   "passenger-to-freighter-conversions": images.freighterNight,
   "vvip-business-jet-retrofits": images.vvipCabin,
   "commercial-jet-engine-mro": images.turbofanHangar,
-  "aircraft-trading-leasing": images.spacexJet,
+  "aircraft-trading-leasing": images.operations737,
   "portfolio-technical-services": images.engineFan,
   "structured-finance": images.jetSilhouette,
 };

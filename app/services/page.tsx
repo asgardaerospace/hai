@@ -9,18 +9,49 @@ import { ServiceIcon } from "@/components/service-icon";
 import { PageHero } from "@/components/page-hero";
 import { CTABand } from "@/components/sections/cta-band";
 import { images, serviceImages } from "@/lib/images";
-import { services } from "@/lib/site";
+import { services, siteConfig } from "@/lib/site";
+import { webPageLd, breadcrumbLd, ld } from "@/lib/schema";
 import { cn } from "@/lib/cn";
 
+const PAGE_DESCRIPTION =
+  "Hemisphere Aerospace Investments' full-lifecycle services: passenger-to-freighter conversions, VVIP retrofits, commercial jet-engine MRO, aircraft trading and leasing, portfolio and technical services, and structured aviation finance.";
+
 export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "HAI's full-lifecycle services: passenger-to-freighter conversions, VVIP retrofits, commercial jet-engine MRO, aircraft trading & leasing, portfolio & technical services, and structured finance.",
+  title: "Aircraft & Engine Services — P2F Conversions, Engine MRO, Trading & Finance",
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: "/services" },
+  openGraph: {
+    type: "website",
+    siteName: siteConfig.name,
+    title: `Aircraft & Engine Services | ${siteConfig.name}`,
+    description: PAGE_DESCRIPTION,
+    url: "/services",
+    locale: "en_US",
+  },
 };
 
 export default function ServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: ld(
+            webPageLd({
+              path: "/services",
+              name: `Aircraft & Engine Services | ${siteConfig.name}`,
+              description: PAGE_DESCRIPTION,
+            }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: ld(breadcrumbLd([{ name: "Services", path: "/services" }])),
+        }}
+      />
+
       <PageHero
         eyebrow="Our Services"
         title={

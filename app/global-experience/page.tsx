@@ -20,6 +20,7 @@ import { ServiceIcon } from "@/components/service-icon";
 import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site";
 import type { IconKey } from "@/lib/site";
+import { organizationLd, webPageLd, breadcrumbLd, faqLd, ld } from "@/lib/schema";
 
 /* ------------------------------------------------------------------ */
 /* SEO constants                                                       */
@@ -297,79 +298,18 @@ const faqs = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* Structured data (JSON-LD) — mirrors the visible content above        */
+/* Structured data — derived from lib/schema.ts                        */
 /* ------------------------------------------------------------------ */
 
-const canonicalUrl = `${siteConfig.url}${PAGE_PATH}`;
-
-const organizationLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: siteConfig.name,
-  legalName: siteConfig.legalName,
-  alternateName: siteConfig.shortName,
-  url: siteConfig.url,
-  email: siteConfig.email,
-  telephone: siteConfig.phone,
-  foundingDate: String(siteConfig.foundedYear),
-  description:
-    "Hemisphere Aerospace Investments is a global commercial aerospace company focused on aircraft and engine trading, passenger-to-freighter conversions, aviation asset management, MRO coordination, and structured aviation transactions.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: siteConfig.address.line1,
-    addressLocality: siteConfig.address.city,
-    addressRegion: siteConfig.address.state,
-    postalCode: siteConfig.address.zip,
-    addressCountry: "US",
-  },
-  areaServed: [
-    "North America",
-    "South America",
-    "Europe",
-    "Africa",
-    "Asia",
-    "Australia and Oceania",
-  ],
-  knowsAbout: [
-    "Commercial aircraft trading",
-    "Aircraft engine trading",
-    "Passenger-to-freighter conversions",
-    "Aircraft leasing",
-    "Aviation asset management",
-    "Aircraft maintenance coordination",
-    "Structured aviation finance",
-    "Aviation investment",
-  ],
-};
-
-const webPageLd = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
+// The Organization block lives in lib/schema.ts so this page and the rest of
+// the site describe the company identically. Only the page-scoped nodes are
+// built here. The FAQ array above remains the single source of truth for both
+// the visible section and the FAQPage data.
+const pageLd = webPageLd({
+  path: PAGE_PATH,
   name: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
-  url: canonicalUrl,
-  inLanguage: "en-US",
-  isPartOf: {
-    "@type": "WebSite",
-    name: siteConfig.name,
-    url: siteConfig.url,
-  },
-  about: {
-    "@type": "Organization",
-    name: siteConfig.name,
-    url: siteConfig.url,
-  },
-};
-
-const faqLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
+});
 
 /* ------------------------------------------------------------------ */
 /* Page                                                                */
@@ -380,15 +320,23 @@ export default function GlobalExperiencePage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+        dangerouslySetInnerHTML={{ __html: ld(organizationLd) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }}
+        dangerouslySetInnerHTML={{ __html: ld(pageLd) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        dangerouslySetInnerHTML={{ __html: ld(faqLd(faqs)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: ld(
+            breadcrumbLd([{ name: "Global Experience", path: PAGE_PATH }]),
+          ),
+        }}
       />
 
       <PageHero

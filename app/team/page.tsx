@@ -7,11 +7,32 @@ import { PageHero } from "@/components/page-hero";
 import { CTABand } from "@/components/sections/cta-band";
 import { images } from "@/lib/images";
 import { siteConfig, team } from "@/lib/site";
+import {
+  organizationLd,
+  teamPersonLd,
+  breadcrumbLd,
+  absoluteUrl,
+  slugifyName,
+  ORG_ID,
+  SITE_ID,
+  ld,
+} from "@/lib/schema";
+
+const PAGE_DESCRIPTION =
+  "The leadership of Hemisphere Aerospace Investments: proven executives across commercial aircraft trading, passenger-to-freighter conversions, engine programs, MRO operations, and aviation finance.";
 
 export const metadata: Metadata = {
-  title: "Team",
-  description:
-    "Meet the leadership of Hemisphere Aerospace Investments, proven leaders across commercial aircraft trading, MRO, and aviation finance.",
+  title: "Leadership",
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: "/team" },
+  openGraph: {
+    type: "website",
+    siteName: siteConfig.name,
+    title: `Leadership | ${siteConfig.name}`,
+    description: PAGE_DESCRIPTION,
+    url: "/team",
+    locale: "en_US",
+  },
 };
 
 /** Monogram fallback for leaders whose approved headshot isn't available yet. */
@@ -23,61 +44,27 @@ function initials(name: string) {
 }
 
 /* ------------------------------------------------------------------ */
-/* Structured data (JSON-LD) — mirrors the leadership content below     */
+/* Structured data — derived from lib/schema.ts                        */
 /* ------------------------------------------------------------------ */
 
-const canonicalUrl = `${siteConfig.url}/team`;
-
-const organizationLd = {
+/**
+ * ProfilePage carrying the shared Organization with its employee roster
+ * attached. The Person nodes are generated from the same `team` array that
+ * renders the visible bios, so schema and page can never disagree.
+ */
+const profilePageLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: siteConfig.name,
-  legalName: siteConfig.legalName,
-  alternateName: siteConfig.shortName,
-  url: siteConfig.url,
-  email: siteConfig.email,
-  telephone: siteConfig.phone,
-  foundingDate: String(siteConfig.foundedYear),
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: siteConfig.address.line1,
-    addressLocality: siteConfig.address.city,
-    addressRegion: siteConfig.address.state,
-    postalCode: siteConfig.address.zip,
-    addressCountry: "US",
-  },
-  employee: team.map((member) => ({
-    "@type": "Person",
-    name: member.name,
-    jobTitle: member.role,
-    description: member.bio[0],
-    knowsAbout: member.expertise,
-    url: canonicalUrl,
-    ...(member.photo ? { image: `${siteConfig.url}${member.photo.src}` } : {}),
-    worksFor: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
-  })),
-};
-
-const webPageLd = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: `Team | ${siteConfig.shortName}`,
-  description: metadata.description,
-  url: canonicalUrl,
+  "@type": "ProfilePage",
+  "@id": `${absoluteUrl("/team")}#webpage`,
+  url: absoluteUrl("/team"),
+  name: `Leadership | ${siteConfig.name}`,
+  description: PAGE_DESCRIPTION,
   inLanguage: "en-US",
-  isPartOf: {
-    "@type": "WebSite",
-    name: siteConfig.name,
-    url: siteConfig.url,
-  },
-  about: {
-    "@type": "Organization",
-    name: siteConfig.name,
-    url: siteConfig.url,
+  isPartOf: { "@id": SITE_ID },
+  about: { "@id": ORG_ID },
+  mainEntity: {
+    ...organizationLd,
+    employee: teamPersonLd(team),
   },
 };
 
@@ -86,11 +73,13 @@ export default function TeamPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+        dangerouslySetInnerHTML={{ __html: ld(profilePageLd) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }}
+        dangerouslySetInnerHTML={{
+          __html: ld(breadcrumbLd([{ name: "Leadership", path: "/team" }])),
+        }}
       />
 
       <PageHero
@@ -116,7 +105,12 @@ export default function TeamPage() {
         <div className="mt-14 space-y-8">
           {team.map((member, index) => (
             <Reveal key={member.name} delay={index * 80}>
-              <article className="grid gap-8 overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition-shadow duration-500 hover:shadow-float sm:p-8 lg:grid-cols-12 lg:gap-10">
+              {/* Stable anchor so an individual leader is directly linkable and
+                  citable — matches the `url` on that Person node in schema. */}
+              <article
+                id={slugifyName(member.name)}
+                className="scroll-mt-28 grid gap-8 overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition-shadow duration-500 hover:shadow-float sm:p-8 lg:grid-cols-12 lg:gap-10"
+              >
                 <div className="lg:col-span-4">
                   {/* 5:4 matches the source frame, so the logo wall is never cropped. */}
                   <div className="relative aspect-[5/4] overflow-hidden rounded-[1.5rem] bg-navy-900 ring-1 ring-inset ring-white/10">
