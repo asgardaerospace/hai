@@ -34,6 +34,35 @@ export const siteConfig = {
   },
 } as const;
 
+/**
+ * Affiliated Hemisphere companies, linked from the footer.
+ *
+ * RELATIONSHIP LANGUAGE IS DELIBERATELY CONSERVATIVE.
+ *
+ * What is supported by published material: officers serving across both
+ * entities, which establishes shared executive leadership and affiliation.
+ * What is NOT established: a parent-subsidiary hierarchy. Neither site
+ * asserts one and neither emits parentOrganization in structured data, so
+ * this says "affiliated" rather than "our defense division" or "subsidiary".
+ *
+ * Strengthen the wording on both properties together, never one alone, once
+ * the legal relationship is confirmed.
+ */
+export type Affiliate = {
+  name: string;
+  href: string;
+  summary: string;
+};
+
+export const affiliates: Affiliate[] = [
+  {
+    name: "Hemisphere Aerospace Defense",
+    href: "https://had.hai-aero.com",
+    summary:
+      "develops defense programs built around persistent awareness, distributed infrastructure, and autonomous systems support",
+  },
+];
+
 export type NavLink = { label: string; href: string };
 
 export const navLinks: NavLink[] = [

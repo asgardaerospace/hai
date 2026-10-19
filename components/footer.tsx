@@ -2,7 +2,7 @@ import Link from "next/link";
 import { MapPin, EnvelopeSimple, ArrowUpRight, Phone } from "@phosphor-icons/react/ssr";
 import { Logo } from "@/components/logo";
 import { Container } from "@/components/ui/container";
-import { siteConfig, navLinks, services } from "@/lib/site";
+import { siteConfig, navLinks, services, affiliates } from "@/lib/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -27,6 +27,25 @@ export function Footer() {
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-navy-100/70">
               {siteConfig.description}
             </p>
+            {affiliates.map((affiliate) => (
+              <p
+                key={affiliate.href}
+                className="mt-4 max-w-sm text-sm leading-relaxed text-navy-100/70"
+              >
+                Affiliated with{" "}
+                <a
+                  href={affiliate.href}
+                  className="group inline-flex items-baseline gap-1 font-medium text-white underline decoration-gold-500/50 underline-offset-4 transition-colors hover:decoration-gold-500"
+                >
+                  {affiliate.name}
+                  <ArrowUpRight
+                    className="size-3.5 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    aria-hidden
+                  />
+                </a>
+                , which {affiliate.summary}.
+              </p>
+            ))}
           </div>
 
           {/* Quick links */}
